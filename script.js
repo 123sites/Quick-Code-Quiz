@@ -11,6 +11,7 @@ var li1 = document.createElement("li");
 var li2 = document.createElement("li");
 var li3 = document.createElement("li");
 var li4 = document.createElement("li");
+
 var level = 0
 var quizArray = [ {
   q: "question 1",
@@ -37,7 +38,7 @@ level ++
 console.log(quizArray[level].q)
 level ++
 console.log(quizArray[level].q)
-
+level ++
 // Text at the top.
 h1El.textContent = "Quick Code Quiz!";
 quizEl.textContent = "Can you answer all these questions before the time is up?";
@@ -58,17 +59,17 @@ listEl.appendChild(li2);
 listEl.appendChild(li3);
 listEl.appendChild(li4);
 
-h1El.setAttribute("style", "margin:auto; width:50%; text-align:center; margin-top:25px;");
+h1El.setAttribute("style", "margin:auto; width:50%; text-align:center; margin-top:25px; font-family:monospace,sans-serif;");
 infoEl.setAttribute("style", "margin:auto; width:50%; text-align:center;");
-textEl.setAttribute("style", "font-size:25px; text-align:center; text-weight: bold");
-quizEl.setAttribute("style", "font-size:25px; text-align:center; text-weight: bold");
-questionEl.setAttribute("style", "font-size:25px; color:black; text-weight: bold;");
+textEl.setAttribute("style", "font-size:25px; text-align:center; text-weight: bold; font-family:monospace,sans-serif;");
+quizEl.setAttribute("style", "font-size:25px; text-align:center; text-weight: bold; font-family:monospace,sans-serif;");
+questionEl.setAttribute("style", "font-size:25px; color:black; text-weight: bold; font-family:monospace,sans-serif;");
 
-// Answers
-li1.textContent = "Answer1 ";
-li2.textContent = "Answer3 ";
-li3.textContent = "Answer3 ";
-li4.textContent = "Answer4 ";
+// A-D
+li1.textContent = "A) ";
+li2.textContent = "B) ";
+li3.textContent = "C) ";
+li4.textContent = "D) ";
 
 // Styling for list elements
 listEl.setAttribute("style", "background:mediumpurple; padding:20px;");
