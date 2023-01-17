@@ -10,6 +10,8 @@ div {
   text-align: center;
 }
 
+
+
 .container {
   margin: auto;
   width: 100%;
@@ -24,7 +26,7 @@ div {
 }
 
 #main {
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   font-size: 100px;
   width: 100%;
   height: 25px;

@@ -17,7 +17,7 @@ h1El.textContent = "Quick Code Quiz!";
 quizEl.textContent = "Can you answer all the questions before the time is up?";
 textEl.textContent = "Text?";
 
-// Text just befor the answers.
+// Text just before the answers.
 questionEl.textContent = "Question 1 goes here.";
 
 body.appendChild(h1El);
@@ -25,7 +25,7 @@ body.appendChild(infoEl);
 infoEl.appendChild(quizEl);
 body.appendChild(questionEl);
 // Append ordered list 
-favoriteEl.appendChild(listEl);
+questionEl.appendChild(listEl);
 // Append list items to ordered list element 
 listEl.appendChild(li1);
 listEl.appendChild(li2);
@@ -47,7 +47,7 @@ li4.textContent = "Answer4 ";
 // Styling for list elements
 listEl.setAttribute("style", "background:gray; padding:20px;");
 // Other styling to list items
-li1.setAttribute("style", " color:white; background: lightblue; padding: 5px; margin-left: 35px;");
+li1.setAttribute(" color:white; background: lightblue; padding: 5px; margin-left: 35px;");
 li2.setAttribute("style", " color:white; background: lightgray; padding: 5px; margin-left: 35px;");
 li3.setAttribute("style", " color:white; background: blue; padding: 5px; margin-left: 35px;");
 li4.setAttribute("style", " color:white; background: gray; padding: 5px; margin-left: 35px;");
