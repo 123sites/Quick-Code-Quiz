@@ -45,7 +45,7 @@ li3.textContent = "Answer3 ";
 li4.textContent = "Answer4 ";
 
 // Styling for list elements
-listEl.setAttribute("style", "background:#333333; padding:20px;");
+listEl.setAttribute("style", "background:gray; padding:20px;");
 // Other styling to list items
 li1.setAttribute("style", " color:white; background: lightblue; padding: 5px; margin-left: 35px;");
 li2.setAttribute("style", " color:white; background: lightgray; padding: 5px; margin-left: 35px;");
