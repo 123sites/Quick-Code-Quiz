@@ -171,6 +171,20 @@ function init() {
   getlosses();
 }
 
+function getWins() {
+  // Gets stored value
+  var storedWins = localStorage.getItem("win");
+  // If stored value doesn't exist, set counter to 0
+  if (storedWins === null) {
+    winCounter = 0;
+  } else {
+    // If a value is retrieved from client storage set the winCounter to that value
+    winCounter = storedWins;
+  }
+
+  //Render win count to page
+  win.textContent = winCounter;
+}
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
 
@@ -304,6 +318,11 @@ function setWins() {
   win.textContent = winCounter;
   localStorage.setItem("winCount", winCounter);
 }
+// lose count
+function setLosses() {
+  lose.textContent = loseCounter;
+  localStorage.setItem("loseCount", loseCounter);
+}
 
 function setStatusClass(element, right) {
   clearStatusClass(element)
@@ -333,3 +352,15 @@ function setNextQuestion() {
   showQuestion(shuffledQuestions[currentQuestionIndex])
 }
 
+var startOver = document.querySelector(".startOver");
+
+function startOver() {
+  // Resets win and loss counts
+  winCounter = 0;
+  loseCounter = 0;
+  // Win/loss is in client storage
+  setWins()
+  setLosses()
+}
+
+startOverButton.addEventListener("click", startOver);
