@@ -14,11 +14,11 @@
   color:aliceblue;
 } */
 
-body.right {
+.btn.right {
   --hue: var(--hue-right);
 }
 
-body.wrong {
+.btn.wrong {
   --hue: var(--hue-wrong);
 }
 
@@ -39,7 +39,7 @@ body.wrong {
 }
 
 .right {
-  --hue: var(--hue-right;
+  --hue: var(--hue-right);
   color: black;
 }
 
@@ -70,16 +70,3 @@ body.wrong {
   text-align: center;
 }
 
-#main {
-  margin-bottom: 12px;
-  font-size: 100px;
-  width: 100%;
-  height: 25px;
-}
-
-#read {
-  margin: auto;
-  padding: 10px;
-  width: 100%;
-  height: 25px;
-}

@@ -9,12 +9,14 @@ var win = document.querySelector(".win");
 var lose = document.querySelector(".lose");
 var timeElement = document.querySelector(".timer");
 var start = document.querySelector(".start-btn");
-var next = document.querySelector(".start-btn");
+var next = document.querySelector(".next-btn");
+var timerElement = document.querySelector(".count");
+var start = document.querySelector(".start");
 var winCounter = 0;
 var loseCounter = 0;
 var isWin = false;
-var time;
 var timer;
+var count;
 // Array of possible answers the user will guess
 var answers = ["a","b", "c", "d"];
 
@@ -29,13 +31,13 @@ var li4 = document.createElement("li");
 // Array of answers
 var level = 0
 var quizArray = [ {
-  q: "1) Which of these is NOT a coding language.",
+  q: "1) Which of these is NOT a coding language?",
   a: ["a", "b", "c", "d"], 
   answer: "b"
   
 },
  {
-  q: "2) What is bolean?",
+  q: "2) What 2 possible values does Boolean have?",
   a: ["a", "b", "c", "d"], 
   answer: "c"
   
@@ -50,21 +52,21 @@ var quizArray = [ {
 {
   q: "4) What does CSS stand for?",
   a: ["a", "b", "c", "d"], 
-  answer: "a"
+  answer: "d"
   
 },
 
 {
-  q: "5) What is JSON?",
+  q: "5) Responsive design means to make a website look...",
   a: ["a", "b", "c", "d"], 
-  answer: "e"
+  answer: "a"
   
 },
 
 ]
-console.log(quizArray[level].q)
+console.log(quizArray[0].q)
 level ++
-console.log(quizArray[level].q)
+console.log(quizArray[1].q)
 level ++
 console.log(quizArray[level].q)
 level ++
@@ -73,13 +75,63 @@ level ++
 console.log(quizArray[level].q)
 level ++
 
+function showQuestion(question) {
+  questionElement.innerText = question.question
+  question.answers.forEach(answer => {
+    const button = document.createElement('button')
+    button.innerText = answer.text
+    button.classList.add('btn')
+    if (answer.right) {
+      button.dataset.right = answer.correct
+    }
+    button.addEventListener('click', selectAnswer)
+    answerButtonsElement.appendChild(button)
+  })
+}
+
+const questions = [
+  {
+    ques: '1) Which of these is NOT a coding language?',
+    ans: [
+      { text: 'b', right: true },
+    ]
+  },
+  {
+    ques: '2) What 2 possible values does Boolean have?',
+    ans: [
+      { text: 'c', right: true },
+    ]
+  },
+  {
+    ques: '3) What does HTML stand for?',
+    ans: [
+      { text: 'd', right: true },
+    ]
+  },
+  {
+    ques: '4) What does CSS stand for?',
+    ans: [
+      { text: 'd', right: true },
+    ]
+  },
+  {
+    ques: '5) Responsive design means to make a website look…',
+    ans: [
+      { text: 'a', right: true },
+    ]
+  },
+  
+  
+]
 // Text at the top.
 h1El.textContent = "Quick Code Quiz!";
 quizEl.textContent = "Can you answer all these questions before the time is up?";
 textEl.textContent = "Text?";
 
 // Text just before the answers.
-questionEl.textContent = "Question 1 goes here.";
+// questionEl.textContent = ;
+
+
 // Appended, adds to HTML
 body.appendChild(h1El);
 body.appendChild(infoEl);
@@ -119,20 +171,28 @@ function init() {
   getlosses();
 }
 
-
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
 
-startButton.addEventListener('click', start)
-nextButton.addEventListener('click', () => {
- currentQuestionIndex++
- setNextQuestion()
-})
 
 // When the start button is clicked...
+function selectAnswer(e) {
+  const selectedButton = e.target
+  const correct = selectedButton.dataset.correct
+  setStatusClass(document.body, correct)
+  Array.from(quizArray).forEach(button => {
+    setStatusClass(button, button.dataset.right)
+  })
+  if (shuffledQuestions.length > currentQuestionIndex + 1) {
+    nextButton.classList.remove('hide')
+  } else {
+    startButton.innerText = 'Restart'
+    startButton.classList.remove('hide')
+  }
+}
 function start() {
   isWin = false;
-  timer = 25;
+  count = 25;
 // Disables start button after game starts
   startButton.disabled = true;
   renderBlanks()
@@ -219,19 +279,19 @@ function lose() {
 // Starts and stops the game.  It triggers win/lose
 function startTimer() {
   // Sets timer
-  timer = setInterval(function() {
-    timer--;
-    timeElement.textContent = timer;
-    if (timer >= 0) {
+  count = setInterval(function() {
+    count--;
+    timeElement.textContent = count;
+    if (count >= 0) {
       // Tests if won
-      if (isWin && timer > 0) {
+      if (isWin && count > 0) {
         // Stops timer & clears interval
         clearInterval(timer);
         winGame();
       }
     }
     // Time out?
-    if (timer === 0) {
+    if (count === 0) {
       // Clears it
       clearInterval(timer);
       loseGame();
@@ -260,6 +320,16 @@ function clearStatusClass(element) {
 }
 
 // Starts the game
-startButton.addEventListener("click", startGame);
+function startGame() {
+  startButton.classList.add('hide')
+  shuffledQuestions = questions.sort(() => Math.random() - .5)
+  currentQuestionIndex = 0
+  questionContainerElement.classList.remove('hide')
+  setNextQuestion()
+}
 
-init();
+function setNextQuestion() {
+  resetState()
+  showQuestion(shuffledQuestions[currentQuestionIndex])
+}
+
