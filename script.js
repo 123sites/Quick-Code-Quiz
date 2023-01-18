@@ -145,10 +145,9 @@ listEl.appendChild(li4);
 
 h1El.setAttribute("style", "margin: 0px; width:50%; text-align:center; margin-top:5px; color: hsl(265, 90%, 34%); font-family:monospace,sans-serif;");
 infoEl.setAttribute("style", "margin: 0px; width:50%; text-align:center;");
-textEl.setAttribute("style", "font-size:25px; text-align:center; text-weight: bold; font-family:monospace,sans-serif;");
+textEl.setAttribute("style", "font-size:25px; padding-left: 7px; margin-left: 5px; text-align:center; text-weight: bold; font-family:monospace,sans-serif;");
 quizEl.setAttribute("style", "font-size:25px; text-align:center; text-weight: bold; font-family:monospace,sans-serif;");
 questionEl.setAttribute("style", "font-size:25px; color:black; text-weight: bold; font-family:monospace,sans-serif;");
-
 // A-D
 li1.textContent = "A) ";
 li2.textContent = "B) ";
@@ -158,10 +157,10 @@ li4.textContent = "D) ";
 // Styling for list elements
 listEl.setAttribute("style", "background:mediumpurple; padding:20px;");
 // Other styling to list items
-li1.setAttribute("style", " color:white; background: darkgray; padding: 5px; margin-left: 35px;");
-li2.setAttribute("style", " color:white; background: slategray; padding: 5px; margin-left: 35px;");
-li3.setAttribute("style", " color:white; background: cornflowerBlue; padding: 5px; margin-left: 35px;");
-li4.setAttribute("style", " color:white; background: dimgray; padding: 5px; margin-left: 35px;");
+li1.setAttribute("style", " padding: 10px; color:white; background: darkgray; padding: 5px; margin-left: 35px;");
+li2.setAttribute("style", " padding: 10px; color:white; background: slategray; padding: 5px; margin-left: 35px;");
+li3.setAttribute("style", " padding: 10px; color:white; background: cornflowerBlue; padding: 5px; margin-left: 35px;");
+li4.setAttribute("style", " padding: 10px; color:white; background: dimgray; padding: 5px; margin-left: 35px;");
 
 // init - when the page loads
 function init() {

@@ -10,14 +10,19 @@
   --hue-right: 100;
 }
 div {
-  margin-top: 0px; 
+  margin-top: 10px; 
   font-size: 30px; 
   font-weight: bolder;
   color: hsl(265, 90%, 34%);
 }
 
 h3 {
-  padding-bottom: 0px;
+  padding: 0px;
+  margin: 0px;
+}
+
+li {
+  padding: 10px;
 }
 
 .title, .subtitle {
@@ -38,7 +43,7 @@ h3 {
 
 .subtitle {
   padding-top: 7px;
-  padding-bottom: 0px;
+  padding-bottom: 25px;
   font-size: 35px;
 }
 .btn.right {
