@@ -4,6 +4,21 @@ var infoEl = document.createElement("div");
 var quizEl = document.createElement("div");
 var textEl = document.createElement("div");
 var questionEl = document.createElement("div");
+// Win/lose & countdown
+var win = document.querySelector(".win");
+var lose = document.querySelector(".lose");
+var timeElement = document.querySelector(".timer");
+var start = document.querySelector(".start-btn");
+var next = document.querySelector(".start-btn");
+var winCounter = 0;
+var loseCounter = 0;
+var isWin = false;
+var time;
+var timer;
+// Array of possible answers the user will guess
+var answers = ["a","b", "c", "d"];
+
+
 // Ordered list
 var listEl = document.createElement("ol");
 // List items
@@ -11,41 +26,46 @@ var li1 = document.createElement("li");
 var li2 = document.createElement("li");
 var li3 = document.createElement("li");
 var li4 = document.createElement("li");
+// Array of answers
 var level = 0
 var quizArray = [ {
-  q: "Which of these is NOT a coding language.",
+  q: "1) Which of these is NOT a coding language.",
   a: ["a", "b", "c", "d"], 
   answer: "b"
   
 },
  {
-  q: "What is boleen?",
+  q: "2) What is bolean?",
   a: ["a", "b", "c", "d"], 
   answer: "c"
   
 },
  {
-  q: "What does HTML stand for?",
+  q: "3) What does HTML stand for?",
   a: ["a", "b", "c", "d"], 
   answer: "d"
   
 },
 
 {
-  q: "What does CSS stand for?",
+  q: "4) What does CSS stand for?",
   a: ["a", "b", "c", "d"], 
   answer: "a"
   
 },
 
 {
-  q: "What is JSON?",
+  q: "5) What is JSON?",
   a: ["a", "b", "c", "d"], 
   answer: "e"
   
 },
 
 ]
+console.log(quizArray[level].q)
+level ++
+console.log(quizArray[level].q)
+level ++
 console.log(quizArray[level].q)
 level ++
 console.log(quizArray[level].q)
@@ -93,24 +113,42 @@ li2.setAttribute("style", " color:white; background: slategray; padding: 5px; ma
 li3.setAttribute("style", " color:white; background: cornflowerBlue; padding: 5px; margin-left: 35px;");
 li4.setAttribute("style", " color:white; background: dimgray; padding: 5px; margin-left: 35px;");
 
+// init - when the page loads
+function init() {
+  getWins();
+  getlosses();
+}
+
 
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
 
-startButton.addEventListener('click', startGame)
+startButton.addEventListener('click', start)
 nextButton.addEventListener('click', () => {
  currentQuestionIndex++
  setNextQuestion()
 })
 
-function startGame() {
-  
+// When the start button is clicked...
+function start() {
+  isWin = false;
+  timer = 25;
+// Disables start button after game starts
+  startButton.disabled = true;
+  renderBlanks()
+  startTimer()
+}
+
 //  startButton.classList.add('hide')
 //  shuffledQuestions = questions.sort(() => Math.random() - .5)
 //  currentQuestionIndex = 0
 //  questionContainerElement.classList.remove('hide')
 //  setNextQuestion()
-}
+
+const questionContainerElement = document.getElementById('question-container')
+const questionElement = document.getElementById('question')
+const answerButtonsElement = document.getElementById('answer-buttons')
+
 function selectAnswer(e) {
   const selectedButton = e.target
   const correct = selectedButton.dataset.correct
@@ -126,6 +164,87 @@ function selectAnswer(e) {
   }
 }
 
+function showQuestion(question) {
+  questionElement.innerText = question.question
+  question.answers.forEach(answer => {
+    const button = document.createElement('button')
+    button.innerText = answer.text
+    button.classList.add('btn')
+    if (answer.correct) {
+      button.dataset.correct = answer.correct
+    }
+    button.addEventListener('click', selectAnswer)
+    answerButtonsElement.appendChild(button)
+  })
+}
+
+function resetState() {
+  clearStatusClass(document.body)
+  nextButton.classList.add('hide')
+  while (answerButtonsElement.firstChild) {
+    answerButtonsElement.removeChild(answerButtonsElement.firstChild)
+  }
+}
+
+function setStatusClass(element, correct) {
+  clearStatusClass(element)
+  if (correct) {
+    element.classList.add('right')
+  } else {
+    element.classList.add('wrong')
+  }
+}
+
+function clearStatusClass(element) {
+  element.classList.remove('right')
+  element.classList.remove('wrong')
+}
+
+// Shows they won!
+function win() {
+  wordBlank.textContent = "🤩 WINNER! 🤩";
+  winCounter++
+  startButton.disabled = false;
+  setWins()
+}
+
+// Shows they lost when the timer is 0.
+function lose() {
+  wordBlank.textContent = "🙁 GAME OVER 🙁";
+  loseCounter++
+  startButton.disabled = false;
+  setLosses()
+}
+
+// Starts and stops the game.  It triggers win/lose
+function startTimer() {
+  // Sets timer
+  timer = setInterval(function() {
+    timer--;
+    timeElement.textContent = timer;
+    if (timer >= 0) {
+      // Tests if won
+      if (isWin && timer > 0) {
+        // Stops timer & clears interval
+        clearInterval(timer);
+        winGame();
+      }
+    }
+    // Time out?
+    if (timer === 0) {
+      // Clears it
+      clearInterval(timer);
+      loseGame();
+    }
+  }, 1000);
+}
+
+// Win count
+function setWins() {
+  win.textContent = winCounter;
+  localStorage.setItem("winCount", winCounter);
+}
+
 function setStatusClass(element, right) {
   clearStatusClass(element)
   if (correct) {
@@ -139,3 +258,8 @@ function clearStatusClass(element) {
   element.classList.remove('right')
   element.classList.remove('wrong')
 }
+
+// Starts the game
+startButton.addEventListener("click", startGame);
+
+init();
