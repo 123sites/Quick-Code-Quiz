@@ -1,6 +1,7 @@
 *, *::before, *::after {
   box-sizing: border-box;
   font-family: monospace, sans-serif;
+  border-radius: 10px;
 }
 
 :root {
@@ -8,11 +9,12 @@
   --hue-wrong: 0;
   --hue-right: 100;
 }
-/* div {
-  margin-top: 15px;
-  font-size: 25px;
-  color:aliceblue;
-} */
+div {
+  margin-top: 0px; 
+  font-size: 25px; 
+  font-weight: bolder;
+  color: hsl(265, 90%, 34%);
+}
 
 .btn.right {
   --hue: var(--hue-right);

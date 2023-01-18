@@ -145,7 +145,7 @@ listEl.appendChild(li2);
 listEl.appendChild(li3);
 listEl.appendChild(li4);
 
-h1El.setAttribute("style", "margin:auto; width:50%; text-align:center; margin-top:25px; font-family:monospace,sans-serif;");
+h1El.setAttribute("style", "margin:auto; width:50%; text-align:center; margin-top:25px; color: hsl(265, 90%, 34%); font-family:monospace,sans-serif;");
 infoEl.setAttribute("style", "margin:auto; width:50%; text-align:center;");
 textEl.setAttribute("style", "font-size:25px; text-align:center; text-weight: bold; font-family:monospace,sans-serif;");
 quizEl.setAttribute("style", "font-size:25px; text-align:center; text-weight: bold; font-family:monospace,sans-serif;");
@@ -296,7 +296,7 @@ function startTimer() {
       clearInterval(timer);
       loseGame();
     }
-  }, 1000);
+  }, 100);
 }
 
 // Win count
