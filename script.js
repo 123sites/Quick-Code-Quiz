@@ -11,7 +11,6 @@ var li1 = document.createElement("li");
 var li2 = document.createElement("li");
 var li3 = document.createElement("li");
 var li4 = document.createElement("li");
-
 var level = 0
 var quizArray = [ {
   q: "question 1",
@@ -78,3 +77,21 @@ li1.setAttribute("style", " color:white; background: darkgray; padding: 5px; mar
 li2.setAttribute("style", " color:white; background: slategray; padding: 5px; margin-left: 35px;");
 li3.setAttribute("style", " color:white; background: cornflowerBlue; padding: 5px; margin-left: 35px;");
 li4.setAttribute("style", " color:white; background: dimgray; padding: 5px; margin-left: 35px;");
+
+
+const startButton = document.getElementById('start-btn')
+const nextButton = document.getElementById('next-btn')
+
+startButton.addEventListener('click', startGame)
+nextButton.addEventListener('click', () => {
+ currentQuestionIndex++
+ setNextQuestion()
+})
+
+function startGame() {
+ startButton.classList.add('hide')
+ shuffledQuestions = questions.sort(() => Math.random() - .5)
+ currentQuestionIndex = 0
+ questionContainerElement.classList.remove('hide')
+ setNextQuestion()
+}
