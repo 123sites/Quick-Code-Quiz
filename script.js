@@ -13,21 +13,35 @@ var li3 = document.createElement("li");
 var li4 = document.createElement("li");
 var level = 0
 var quizArray = [ {
-  q: "question 1",
+  q: "Which of these is NOT a coding language.",
   a: ["a", "b", "c", "d"], 
   answer: "b"
   
 },
  {
-  q: "question 2",
+  q: "What is boleen?",
   a: ["a", "b", "c", "d"], 
-  answer: "b"
+  answer: "c"
   
 },
  {
-  q: "question 3",
+  q: "What does HTML stand for?",
   a: ["a", "b", "c", "d"], 
-  answer: "b"
+  answer: "d"
+  
+},
+
+{
+  q: "What does CSS stand for?",
+  a: ["a", "b", "c", "d"], 
+  answer: "a"
+  
+},
+
+{
+  q: "What is JSON?",
+  a: ["a", "b", "c", "d"], 
+  answer: "e"
   
 },
 
@@ -82,9 +96,6 @@ li4.setAttribute("style", " color:white; background: dimgray; padding: 5px; marg
 
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
-const questionContainerElement = document.getElementById('question-container')
-const questionElement = document.getElementById('question')
-const answerButtonsElement = document.getElementById('answer-buttons')
 
 startButton.addEventListener('click', startGame)
 nextButton.addEventListener('click', () => {
@@ -93,11 +104,12 @@ nextButton.addEventListener('click', () => {
 })
 
 function startGame() {
- startButton.classList.add('hide')
- shuffledQuestions = questions.sort(() => Math.random() - .5)
- currentQuestionIndex = 0
- questionContainerElement.classList.remove('hide')
- setNextQuestion()
+  
+//  startButton.classList.add('hide')
+//  shuffledQuestions = questions.sort(() => Math.random() - .5)
+//  currentQuestionIndex = 0
+//  questionContainerElement.classList.remove('hide')
+//  setNextQuestion()
 }
 function selectAnswer(e) {
   const selectedButton = e.target
