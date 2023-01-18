@@ -38,6 +38,7 @@ console.log(quizArray[level].q)
 level ++
 console.log(quizArray[level].q)
 level ++
+
 // Text at the top.
 h1El.textContent = "Quick Code Quiz!";
 quizEl.textContent = "Can you answer all these questions before the time is up?";
@@ -81,6 +82,9 @@ li4.setAttribute("style", " color:white; background: dimgray; padding: 5px; marg
 
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
+const questionContainerElement = document.getElementById('question-container')
+const questionElement = document.getElementById('question')
+const answerButtonsElement = document.getElementById('answer-buttons')
 
 startButton.addEventListener('click', startGame)
 nextButton.addEventListener('click', () => {
@@ -94,4 +98,32 @@ function startGame() {
  currentQuestionIndex = 0
  questionContainerElement.classList.remove('hide')
  setNextQuestion()
+}
+function selectAnswer(e) {
+  const selectedButton = e.target
+  const correct = selectedButton.dataset.correct
+  setStatusClass(document.body, correct)
+  Array.from(answerButtonsElement.children).forEach(button => {
+    setStatusClass(button, button.dataset.correct)
+  })
+  if (shuffledQuestions.length > currentQuestionIndex + 1) {
+    nextButton.classList.remove('hide')
+  } else {
+    startButton.innerText = 'Restart'
+    startButton.classList.remove('hide')
+  }
+}
+
+function setStatusClass(element, right) {
+  clearStatusClass(element)
+  if (correct) {
+    element.classList.add('right')
+  } else {
+    element.classList.add('wrong')
+  }
+}
+
+function clearStatusClass(element) {
+  element.classList.remove('right')
+  element.classList.remove('wrong')
 }
