@@ -11,11 +11,36 @@
 }
 div {
   margin-top: 0px; 
-  font-size: 25px; 
+  font-size: 30px; 
   font-weight: bolder;
   color: hsl(265, 90%, 34%);
 }
 
+h3 {
+  padding-bottom: 0px;
+}
+
+.title, .subtitle {
+  text-align: center;
+  font-weight: bolder;
+}
+
+.title {
+  padding-top: 20px;
+  font-size: 50px;
+}
+
+.timer, .timer-text {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  font-size: 30px;
+}
+
+.subtitle {
+  padding-top: 7px;
+  padding-bottom: 0px;
+  font-size: 35px;
+}
 .btn.right {
   --hue: var(--hue-right);
 }
@@ -59,6 +84,7 @@ div {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-bottom: 0px;
 }
 
 .hide {
