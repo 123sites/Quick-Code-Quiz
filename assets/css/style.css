@@ -16,8 +16,19 @@ div {
   color: hsl(265, 90%, 34%);
 }
 
+h1 {
+  color: hsl(265, 90%, 34%);
+  font-weight: bolder;
+  font-size: 35px;
+  font-family: monospace, sans-serif;
+  margin: 0px;
+  padding-top: 22px;
+  padding-bottom: 0px;
+}
+
 h3 {
-  padding: 0px;
+  padding-top: 0px;
+  padding-bottom: 10px;
   margin: 0px;
 }
 
@@ -35,9 +46,9 @@ li {
   font-size: 50px;
 }
 
-.timer, .timer-text {
+#time .timer, .timer-text {
   padding-top: 0px;
-  padding-bottom: 0px;
+  padding-bottom: 10px;
   font-size: 30px;
 }
 

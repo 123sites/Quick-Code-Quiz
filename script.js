@@ -1,3 +1,10 @@
+// Code quiz
+// click start and and timer starts
+// Answer a question, then get another question
+// If wrong, time is subtracted
+// Ques ans/time reaches 0 = game over
+// Save my initials to the score
+
 var body = document.body;
 var h1El = document.createElement("h1");
 var infoEl = document.createElement("div");
@@ -7,15 +14,14 @@ var questionEl = document.createElement("div");
 // Win/lose & countdown
 var win = document.querySelector(".win");
 var lose = document.querySelector(".lose");
-var timeElement = document.querySelector(".timer");
-var start = document.querySelector(".start-btn");
+var timeElement = document.querySelector(".time");
 var next = document.querySelector(".next-btn");
 var timerElement = document.querySelector(".count");
-var start = document.querySelector(".start");
+// var start = document.querySelector(".start");
 var winCounter = 0;
 var loseCounter = 0;
 var isWin = false;
-var timer;
+var time;
 var count;
 var startOver = document.querySelector(".startOver");
 // Array of possible answers the user will guess
@@ -31,6 +37,11 @@ var li3 = document.createElement("li");
 var li4 = document.createElement("li");
 // Array of answers
 var level = 0
+
+const questionContainerElement = document.getElementById('question-container')
+const questionElement = document.getElementById('question')
+const answerButtonsElement = document.getElementById('answer-buttons')
+
 var quizArray = [ {
   q: "1) Which of these is NOT a coding language?",
   a: ["a", "b", "c", "d"], 
@@ -65,25 +76,15 @@ var quizArray = [ {
 },
 
 ]
-console.log(quizArray[0].q)
-level ++
-console.log(quizArray[1].q)
-level ++
-console.log(quizArray[level].q)
-level ++
-console.log(quizArray[level].q)
-level ++
-console.log(quizArray[level].q)
-level ++
 
 function showQuestion(question) {
-  questionElement.innerText = question.question
-  question.answers.forEach(answer => {
+  questionElement.innerText = question.ques
+  question.ans.forEach(answer => {
     const button = document.createElement('button')
     button.innerText = answer.text
     button.classList.add('btn')
     if (answer.right) {
-      button.dataset.right = answer.correct
+      button.dataset.right = answer.right
     }
     button.addEventListener('click', selectAnswer)
     answerButtonsElement.appendChild(button)
@@ -124,6 +125,21 @@ const questions = [
   
   
 ]
+
+// const startTime = 60;
+// let time = startTime = 60;
+
+// const timeEl = document.getElementById('time');
+
+// setInterval(updateCount, 1000);
+
+// function updateCount(){
+//   const minutes = Math.floor(time / 60)
+//   let seconds = time % 60;
+
+//   countdownEl.innerHTML = '${minutes}: ${seconds}';
+// }
+
 
 
 // Text just before the answers.
@@ -203,11 +219,11 @@ function selectAnswer(e) {
 }
 function start() {
   isWin = false;
-  count = 25;
+  count = 60;
 // Disables start button after game starts
   startButton.disabled = true;
-  renderBlanks()
   startTimer()
+  showQuestion(questions[level])
 }
 
 //  startButton.classList.add('hide')
@@ -216,9 +232,7 @@ function start() {
 //  questionContainerElement.classList.remove('hide')
 //  setNextQuestion()
 
-const questionContainerElement = document.getElementById('question-container')
-const questionElement = document.getElementById('question')
-const answerButtonsElement = document.getElementById('answer-buttons')
+
 
 function selectAnswer(e) {
   const selectedButton = e.target
@@ -235,19 +249,7 @@ function selectAnswer(e) {
   }
 }
 
-function showQuestion(question) {
-  questionElement.innerText = question.question
-  question.answers.forEach(answer => {
-    const button = document.createElement('button')
-    button.innerText = answer.text
-    button.classList.add('btn')
-    if (answer.correct) {
-      button.dataset.correct = answer.correct
-    }
-    button.addEventListener('click', selectAnswer)
-    answerButtonsElement.appendChild(button)
-  })
-}
+
 
 function resetState() {
   clearStatusClass(document.body)
@@ -287,27 +289,29 @@ function lose() {
   setLosses()
 }
 
+
+
 // Starts and stops the game.  It triggers win/lose
 function startTimer() {
   // Sets timer
-  count = setInterval(function() {
+  time = setInterval(function() {
     count--;
     timeElement.textContent = count;
     if (count >= 0) {
       // Tests if won
       if (isWin && count > 0) {
         // Stops timer & clears interval
-        clearInterval(timer);
+        clearInterval(time);
         winGame();
       }
     }
     // Time out?
     if (count === 0) {
       // Clears it
-      clearInterval(timer);
+      clearInterval(time);
       loseGame();
     }
-  }, 100);
+  }, 1000);
 }
 
 // Win count
@@ -358,4 +362,6 @@ function startOver() {
   setLosses()
 }
 
-startOverButton.addEventListener("click", startOver);
+// startOverButton.addEventListener("click", startOver);
+
+startButton.addEventListener("click", start)
