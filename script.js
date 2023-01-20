@@ -4,7 +4,7 @@
 // If wrong, time is subtracted
 // Ques ans/time reaches 0 = game over
 // Save my initials to the score
-
+// 
 var body = document.body;
 var h1El = document.createElement("h1");
 var infoEl = document.createElement("div");
@@ -14,7 +14,7 @@ var questionEl = document.createElement("div");
 // Win/lose & countdown
 var win = document.querySelector(".win");
 var lose = document.querySelector(".lose");
-var timeElement = document.querySelector("#seconds");
+var timeEl = document.querySelector("#seconds");
 
 // starts the timer
 var startTimer = document.querySelector("#start-btn");
@@ -48,30 +48,13 @@ var li4 = document.createElement("li");
 // Array of answers
 var level = 0
 
-
-// Updates count on page
-// function setCounterText() {
-//   countEl.textContent = count;
-// }
-
-// function startTimer() {
-//   startTimer('hide')
-//   shuffledQuestions = questions.sort(() => Math.random() - .5)
-//   currentQuestionIndex = 0
-//   questionContainerElement.classList.remove('hide')
-//   setNextQuestion()
-// }
-
 function setNextQuestion() {
   resetState()
   showQuestion(shuffledQuestions[currentQuestionIndex])
 }
 
-
 const questionElement = document.getElementById('questionChoice:')
-const answerButtonsElement = document.getElementById('answernChoice:')
-
-
+const answerButtonsElement = document.getElementById('answerChoice:')
 
 // const button = document.createElement('button')
 
@@ -189,76 +172,6 @@ var quizArray = [ {
 //   }
 // });
 
-// function showQuestion(question) {
-//   questionElement.innerText = question.ques
-//   question.ans.forEach(answer => {
-//     const button = document.createElement('button')
-//     button.innerText = answer.text
-//     button.classList.add('btn')
-//     if (answer.right) {
-//       button.dataset.right = answer.right
-//     }
-//     button.addEventListener('click', selectAnswer)
-//     answerButtonsElement.appendChild(button)
-//   })
-// // }
-
-// const questions = [
-//   {
-//     ques: '1) Which of these is NOT a coding language?',
-//     ans: [
-//       { text: 'b', right: true },
-//       { text: '.....', right: false}
-//     ]
-//   },
-//   {
-//     ques: '2) What 2 possible values does Boolean have?',
-//     ans: [
-//       { text: 'c', right: true },
-//     ]
-//   },
-//   {
-//     ques: '3) What does HTML stand for?',
-//     ans: [
-//       { text: 'd', right: true },
-//     ]
-//   },
-//   {
-//     ques: '4) What does CSS stand for?',
-//     ans: [
-//       { text: 'd', right: true },
-//     ]
-//   },
-//   {
-//     ques: '5) Responsive design means to make a website look…',
-//     ans: [
-//       { text: 'a', right: true },
-//     ]
-//   },
-  
-  
-// ]
-
-// const startTime = 60;
-// let time = startTime = 60;
-
-// const timeEl = document.getElementById('time');
-
-// setInterval(updateCount, 1000);
-
-// function updateCount(){
-//   const minutes = Math.floor(time / 60)
-//   let seconds = time % 60;
-
-//   countdownEl.innerHTML = '${minutes}: ${seconds}';
-// }
-
-
-
-// Text just before the answers.
-// questionEl.textContent = ;
-
-
 // Appended, adds to HTML
 body.appendChild(h1El);
 body.appendChild(infoEl);
@@ -327,39 +240,20 @@ function selectAnswer(e) {
     startTimer.classList.remove('hide')
   }
 }
-// function start() {
-//   isWin = false;
-//   count = 60;
+function start() {
+//  isWin = false;
+  count = 60;
 // Disables start button after game starts
-//   startButton.disabled = true;
-//   startTimer()
-//   showQuestion(questions[level])
-// }
+  //  startButton.disabled = true;
+  startTimer()
+  showQuestion(questions[level])
+}
 
 //  startButton.classList.add('hide')
 //  shuffledQuestions = questions.sort(() => Math.random() - .5)
 //  currentQuestionIndex = 0
 //  questionContainerElement.classList.remove('hide')
 //  setNextQuestion()
-
-
-
-// function selectAnswer(e) {
-//   const selectedButton = e.target
-//   const correct = selectedButton.dataset.correct
-//   setStatusClass(document.body, correct)
-//   Array.from(answerButtonsElement.children).forEach(button => {
-//     setStatusClass(button, button.dataset.correct)
-//   })
-//   if (shuffledQuestions.length > currentQuestionIndex + 1) {
-//     nextButton.classList.remove('hide')
-//   } else {
-//     startButton.innerText = 'Restart'
-//     startButton.classList.remove('hide')
-//   }
-// }
-
-
 
 function resetState() {
   clearStatusClass(document.body)
@@ -435,5 +329,106 @@ function startOver() {
 
 
 
+
+
+
+// function selectAnswer(e) {
+//   const selectedButton = e.target
+//   const correct = selectedButton.dataset.correct
+//   setStatusClass(document.body, correct)
+//   Array.from(answerButtonsElement.children).forEach(button => {
+//     setStatusClass(button, button.dataset.correct)
+//   })
+//   if (shuffledQuestions.length > currentQuestionIndex + 1) {
+//     nextButton.classList.remove('hide')
+//   } else {
+//     startButton.innerText = 'Restart'
+//     startButton.classList.remove('hide')
+//   }
+// }
+
+
+// /////////////////////////////////////////////////////////////
+
 // startOverButton.addEventListener("click", startOver);
 
+// const questions = [
+  //   {
+  //     ques: '1) Which of these is NOT a coding language?',
+  //     ans: [
+  //       { text: 'b', right: true },
+  //       { text: '.....', right: false}
+  //     ]
+  //   },
+  //   {
+  //     ques: '2) What 2 possible values does Boolean have?',
+  //     ans: [
+  //       { text: 'c', right: true },
+  //     ]
+  //   },
+  //   {
+  //     ques: '3) What does HTML stand for?',
+  //     ans: [
+  //       { text: 'd', right: true },
+  //     ]
+  //   },
+  //   {
+  //     ques: '4) What does CSS stand for?',
+  //     ans: [
+  //       { text: 'd', right: true },
+  //     ]
+  //   },
+  //   {
+  //     ques: '5) Responsive design means to make a website look…',
+  //     ans: [
+  //       { text: 'a', right: true },
+  //     ]
+  //   },
+    
+  
+
+// const startTimer = 60;
+// let  = startTimer = 60;
+  
+// const timeEl = document.getElementById('time')
+// setInterval(updateCount, 1000);
+  
+// function updateCount(){
+//    const minutes = Math.floor(time / 60)
+//    let seconds = time % 60;
+  
+//   // countdownEl.innerHTML = '${minutes}: ${seconds}'; }
+
+// }
+    
+  // ]
+
+  // Updates count on page
+// function setCounterText() {
+//   countEl.textContent = count;
+// }
+
+// function startTimer() {
+//   startTimer('hide')
+//   shuffledQuestions = questions.sort(() => Math.random() - .5)
+//   currentQuestionIndex = 0
+//   questionContainerElement.classList.remove('hide')
+//   setNextQuestion()
+// }
+    
+  // Text just before the answers.
+  // questionEl.textContent = ;
+  
+  // function showQuestion(question) {
+//   questionElement.innerText = question.ques
+//   question.ans.forEach(answer => {
+//     const button = document.createElement('button')
+//     button.innerText = answer.text
+//     button.classList.add('btn')
+//     if (answer.right) {
+//       button.dataset.right = answer.right
+//     }
+//     button.addEventListener('click', selectAnswer)
+//     answerButtonsElement.appendChild(button)
+//   })
+// // }
