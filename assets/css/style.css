@@ -26,9 +26,8 @@ h1 {
   padding-bottom: 0px;
 }
 
-h3 {
-  padding-top: 0px;
-  padding-bottom: 10px;
+h2 {
+  padding: 0px;
   margin: 0px;
 }
 
@@ -91,12 +90,12 @@ li {
 }
 
 .start-btn, .next-btn {
-  font-size: 1.7rem;
+  font-size: 2rem;
   font-weight: bold;
   padding: 10px 35px;
 }
 
-.game-controllers {
+.game-controller {
   display: flex;
   justify-content: center;
   align-items: center;
