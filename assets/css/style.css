@@ -97,7 +97,7 @@ li {
   padding: 10px 35px;
 }
 
-.game-controller {
+.game-controller, #results, #submit {
   display: flex;
   justify-content: center;
   align-items: center;

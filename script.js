@@ -29,12 +29,16 @@ var timerElement = document.querySelector(".count");
 var isWin = false;
 var time;
 
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
+
+
 // Array of possible answers the user will guess
-var questionChoice = "Question?";
+var question = "Question?";
 var answerChoice = ["a","b", "c", "d"];
 
 var counter = document.querySelector("#counter");
-var addPts = document.querySelector("#add");
 var subPts = document.querySelector("#subtract");
 var countEl = document.querySelector("#count");
 var count = localStorage.getItem("count");
@@ -48,30 +52,56 @@ var li4 = document.createElement("li");
 // Array of answers
 var level = 0
 
-function setNextQuestion() {
-  resetState()
-  showQuestion(shuffledQuestions[currentQuestionIndex])
-}
+// function setNextQuestion() {
+//   resetState()
+//   // showQuestion(shuffledQuestions[currentQuestionIndex])
+// }
 
-const questionElement = document.getElementById('questionChoice:')
+const questionElement = document.getElementById('question:')
 const answerButtonsElement = document.getElementById('answerChoice:')
 
 // const button = document.createElement('button')
 
 // button.innerText = 'Start Quiz'
 
-// button.addEventListener('click', () => {
-//   alert('Clicked!')
-// })
+startTimer.addEventListener('click', () => {
+  alert('Clicked!')
+})
 
 // document.body.appendChild(button)
 
-function startTimer(onclick) {
+// function startTimer(onclick) {
+//   // Sets timer
+//   var timerInterval = setInterval(function() {
+//   // time = setInterval(function() {
+//     count--;
+//     timeElement = count;
+//     if (count >= 0) {
+//       // Tests if won
+//       if (isWin && count > 0) {
+//         // Stops timer & clears interval
+//         clearInterval(time);
+//         winGame();
+//     }
+//   }
+//     // Time out?
+//     if (count === 0) {
+//       // Clears it
+//       clearInterval(time);
+//       loseGame();
+//     }
+//   }, 1000);
+// }
+
+// DO BELOW INSTEAD?????
+// Starts and stops the game.  It triggers win/lose
+function startTimer() {
   // Sets timer
   time = setInterval(function() {
-    count--;
-    timeElement.textContent = count;
-    if (count >= 0) {
+    secondsLeft--;
+    timeEl.seconds + " seconds left until the time is up!";
+
+    if (seconds === 0) {
       // Tests if won
       if (isWin && count > 0) {
         // Stops timer & clears interval
@@ -88,83 +118,84 @@ function startTimer(onclick) {
   }, 1000);
 }
 
-// DO BELOW INSTEAD?????
-// // Starts and stops the game.  It triggers win/lose
-// function startTimer() {
-//   // Sets timer
-//   time = setInterval(function() {
-//     secondsLeft--;
-//     timeEl.secondsLeft + " seconds left until the time is up!";
-
-//     if (secondsLeft === 0) {
-//       // Tests if won
-//       if (isWin && count > 0) {
-//         // Stops timer & clears interval
-//         clearInterval(time);
-//         winGame();
-//       }
-//     }
-//     // Time out?
-//     if (count === 0) {
-//       // Clears it
-//       clearInterval(time);
-//       loseGame();
-//     }
-//   }, 1000);
-// }
-
-// WORK ON THIS!!!  function startButton (); [ {
+// function startTimer (); [ {
 // if (start "quizArray" )
 //  }
 // ]
 
-var quizArray = [ {
-  questionChoice:"1) Which of these is NOT a coding language?",
+function showQuestions(questions, quizContainer){
+  var output = [];
+  var answerChoice;
+
+  for(var i=0; i,questions.length; i++){
+    answerChoice=[];
+    for(letter in questions[i].answerChoice){
+      answerChoice.push(
+        '<label>'
+        + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+        + letter + ':'
+        + questions[i].answerChoice[letter]
+        +'<label>'
+      );
+    }
+    output.push(
+      '<div class="question".'+ questions[i].questions + '</div>'
+      + '<div class="answerChoice">' + answerChoice.join('') + '</div>'
+    
+    );
+  }
+    quizContainer.innerHTML = output.join('')
+  }  
+
+
+var myQuestions = [ {
+  // question:"1) Which of these is NOT a coding language?",
+  // answerChoice: ["a", "b", "c", "d"], 
+  // answer: "code+"
+  question: " 1) Which of these is NOT a coding language? ",
+  answerChoice: {
+    a: 'HTML',
+    b: 'code5',
+    c: 'Python',
+    d: 'JavaScript'
+},
+  right: 'b', 
+},
+
+{
+  question: "2) What 2 possible values does Boolean have?",
   answerChoice: ["a", "b", "c", "d"], 
-  answer: "code+"
+  right: 'c'
   
 },
+
  {
-  questionChoice: "2) What 2 possible values does Boolean have?",
+  question: "3) What does HTML stand for?",
   answerChoice: ["a", "b", "c", "d"], 
-  answer: "c"
-  
-},
- {
-  questionChoice: "3) What does HTML stand for?",
-  answerChoice: ["a", "b", "c", "d"], 
-  answer: "d"
+  right: 'd'
   
 },
 
 {
-  questionChoice: "4) What does CSS stand for?",
+  question: "4) What does CSS stand for?",
   answerChoice: ["a", "b", "c", "d"], 
-  answer: "d"
+  right: 'd'
   
 },
 
 {
-  questionChoice: "5) Responsive design means to make a website look...",
+  question: "5) Responsive design means to make a website look...",
   answerChoice: ["a", "b", "c", "d"], 
-  answer: "a"
+  right: 'a'
   
 },
 
 ]
 
-// ADD THIS LATER!!!!!!!!!!!!!!!!
+
 // counter.textContent = count;
 
-// addPts.addEventListener("click", function() {
-//   if (count < 24) {
-//     count++;
-//     counter.textContent = count;
-//     localStorage.setItem("count", count);
-//   }
-// });
-
-// subtPts.addEventListener("click", function() {
+// subtTime.addEventListener("click", function() {
 //   if (count > 0) {
 //     count--;
 //     counter.textContent = count;
@@ -204,47 +235,53 @@ li2.setAttribute("style", " padding: 10px; color:white; background: slategray; p
 li3.setAttribute("style", " padding: 10px; color:white; background: cornflowerBlue; padding: 5px; margin-left: 35px;");
 li4.setAttribute("style", " padding: 10px; color:white; background: dimgray; padding: 5px; margin-left: 35px;");
 
-// init - when the page loads
-// function init() {
-//   getWins();
-//   getlosses();
-// }
+// USE THIS?????????????????????????????
+// function getWins() {
+//   // Gets stored value
+//   var storedWins = localStorage.getItem("win");
+//   // If stored value doesn't exist, set counter to 0
+//   if (storedWins === null) {
+//     winCounter = 0;
+//   } else {
+//     // If a value is retrieved from client storage set the winCounter to that value
+//  quizArray   winCounter = storedWins;
+//   }
 
-function getWins() {
-  // Gets stored value
-  var storedWins = localStorage.getItem("win");
-  // If stored value doesn't exist, set counter to 0
-  if (storedWins === null) {
-    winCounter = 0;
-  } else {
-    // If a value is retrieved from client storage set the winCounter to that value
-    winCounter = storedWins;
-  }
-
-  //Render win count to page
-  win.textContent = winCounter;
-}
+  // //Render win count to page
+  // win.textContent = winCounter;
 
 // When the start button is clicked...
-function selectAnswer(e) {
-  const selectedButton = e.target
-  const correct = selectedButton.dataset.correct
-  setStatusClass(document.body, correct)
-  Array.from(quizArray).forEach(button => {
-    setStatusClass(button, button.dataset.right)
-  })
-  if (shuffledQuestions.length > currentQuestionIndex + 1) {
-    nextButton.classList.remove('hide')
-  } else {
-    startTimer.innerText = 'Restart'
-    startTimer.classList.remove('hide')
-  }
-}
-function start() {
-//  isWin = false;
+// function selectAnswer(e) {
+//   const selectedButton = e.target
+//   const correct = selectedButton.dataset.correct
+//   setStatusClass(document.body, correct)
+//   Array.from(quizArray).forEach(button => {
+//     setStatusClass(button, button.dataset.right)
+//   })
+  // if (shuffledQuestions.length > currentQuestionIndex + 1) {
+  //   nextButton.classList.remove('hide')
+  // } else {
+  //   startTimer.innerText = 'Restart'
+  //   startTimer.classList.remove('hide')
+  // }
+
+  // USE THIS???????????????????
+  // function startQuiz(questions, quizContainer, resultsContainer, startTimer)
+  // function showQuestions(questions, quizContainer); {
+
+  //   showQuestions(questions, quizContainer);
+
+  //   startTimer.onclick = function() {
+  //    showResults(questions, quizContainer, resultsContainer);
+  //    }
+  //   }
+
+
+  function start() {
+ isWin = false;
   count = 60;
 // Disables start button after game starts
-  //  startButton.disabled = true;
+   startButton.disabled = true;
   startTimer()
   showQuestion(questions[level])
 }
@@ -255,13 +292,13 @@ function start() {
 //  questionContainerElement.classList.remove('hide')
 //  setNextQuestion()
 
-function resetState() {
-  clearStatusClass(document.body)
-  nextButton.classList.add('hide')
-  while (answerButtonsElement.firstChild) {
-    answerButtonsElement.removeChild(answerButtonsElement.firstChild)
-  }
-}
+// function resetState() {
+//   clearStatusClass(document.body)
+//   nextButton.classList.add('hide')
+//   while (answerButtonsElement.firstChild) {
+//     answerButtonsElement.removeChild(answerButtonsElement.firstChild)
+//   }
+// }
 
 function setStatusClass(element, correct) {
   clearStatusClass(element)
@@ -293,6 +330,29 @@ function lose() {
   setLosses()
 }
 
+function showResults(questions, quizContainer, resultsContainer){
+  var answerContainers = quizContainer.querySelectorAll('.answerChoice');
+  var userAnswer = '';
+  var numCorrect = 0;
+  for(var i=0; i<questions.length; i++){
+    userAnswer = (answerContainers[i].querySelector('input[name=question', "right"));{
+      if(userAnswer===questions[i].right){
+      numCorrect++;
+      answerContainers[i].style.color = 'green';
+    }
+    else{
+      answerContainers[i].style.color = 'red';
+    }
+  }
+  resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+}
+}
+
+// submitBtn.onclick = function(){
+//   showResults(questions, quizContainer, resultsContainer);
+// }
+
+
 // Win count
 function setWins() {
   win.textContent = winCounter;
@@ -313,6 +373,26 @@ function setStatusClass(element, right) {
   }
 }
 
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+
+	function showQuestions(questions, quizContainer){
+		// code will go here
+	}
+
+	function showResults(questions, quizContainer, resultsContainer){
+		// code will go here
+	}
+
+	showQuestions(questions, quizContainer);
+	submitButton.onclick = function(){
+		showResults(questions, quizContainer, resultsContainer);
+	}
+}
+
+generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+showQuestions(questions, quizContainer);
+
 function clearStatusClass(element) {
   element.classList.remove('right')
   element.classList.remove('wrong')
@@ -327,8 +407,7 @@ function startOver() {
   setLosses()
 }
 
-
-
+startTimer();
 
 
 
@@ -349,6 +428,13 @@ function startOver() {
 
 
 // /////////////////////////////////////////////////////////////
+
+
+// init - when the page loads
+// function init() {
+//   getWins();
+//   getlosses();
+// }
 
 // startOverButton.addEventListener("click", startOver);
 
