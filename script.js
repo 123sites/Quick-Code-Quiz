@@ -15,6 +15,11 @@ var questionEl = document.createElement("div");
 var win = document.querySelector(".win");
 var lose = document.querySelector(".lose");
 var timeElement = document.querySelector("#seconds");
+
+// starts the timer
+var startTimer = document.querySelector("#start-btn");
+var startOver = document.querySelector(".startOver");
+
 // var next = document.querySelector(".next-btn");
 var timerElement = document.querySelector(".count");
 
@@ -23,8 +28,7 @@ var timerElement = document.querySelector(".count");
 // var loseCounter = 0;
 var isWin = false;
 var time;
-var startTimer = document.querySelector("#start-btn");
-var startOver = document.querySelector(".startOver");
+
 // Array of possible answers the user will guess
 var questionChoice = "Question?";
 var answerChoice = ["a","b", "c", "d"];
@@ -50,9 +54,6 @@ var level = 0
 //   countEl.textContent = count;
 // }
 
-// Starts the game
-
-
 // function startTimer() {
 //   startTimer('hide')
 //   shuffledQuestions = questions.sort(() => Math.random() - .5)
@@ -70,8 +71,19 @@ function setNextQuestion() {
 const questionElement = document.getElementById('questionChoice:')
 const answerButtonsElement = document.getElementById('answernChoice:')
 
-// Starts and stops the game.  It triggers win/lose
-function startTimer() {
+
+
+// const button = document.createElement('button')
+
+// button.innerText = 'Start Quiz'
+
+// button.addEventListener('click', () => {
+//   alert('Clicked!')
+// })
+
+// document.body.appendChild(button)
+
+function startTimer(onclick) {
   // Sets timer
   time = setInterval(function() {
     count--;
@@ -280,10 +292,10 @@ li3.setAttribute("style", " padding: 10px; color:white; background: cornflowerBl
 li4.setAttribute("style", " padding: 10px; color:white; background: dimgray; padding: 5px; margin-left: 35px;");
 
 // init - when the page loads
-function init() {
-  getWins();
-  getlosses();
-}
+// function init() {
+//   getWins();
+//   getlosses();
+// }
 
 function getWins() {
   // Gets stored value
@@ -412,19 +424,16 @@ function clearStatusClass(element) {
   element.classList.remove('wrong')
 }
 
-// function startOver() {
-//   // Resets win and loss counts
-//   winCounter = 0;
-//   loseCounter = 0;
-//   // Win/loss is in client storage
-//   setWins()
-//   setLosses()
-// }
+function startOver() {
+  // Resets win and loss counts
+  winCounter = 0;
+  loseCounter = 0;
+  // Win/loss is in client storage
+  setWins()
+  setLosses()
+}
 
 
 
 // startOverButton.addEventListener("click", startOver);
 
-//NOTE: I changed the below beginning from startButton to startTimer.
-
-//  DID NOT WORK:  startTimer.addEventListener("click", start)
