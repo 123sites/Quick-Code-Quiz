@@ -17,7 +17,7 @@ var lose = document.querySelector(".lose");
 var timeEl = document.querySelector("#seconds");
 
 // starts the timer
-var startTimer = document.querySelector("#start-btn");
+var startBtn = document.querySelector("#start-btn");
 var startOver = document.querySelector(".startOver");
 
 // var next = document.querySelector(".next-btn");
@@ -41,7 +41,7 @@ var answerChoice = ["a","b", "c", "d"];
 var counter = document.querySelector("#counter");
 var subPts = document.querySelector("#subtract");
 var countEl = document.querySelector("#count");
-var count = localStorage.getItem("count");
+//var count = localStorage.getItem("count");
 // Ordered list
 var listEl = document.createElement("ol");
 // List items
@@ -64,26 +64,59 @@ const answerButtonsElement = document.getElementById('answerChoice:')
 
 // button.innerText = 'Start Quiz'
 
-startTimer.addEventListener('click', () => {
+startBtn.addEventListener('click', () => {
   alert('Clicked!')
+  startTimer()
 })
 
+var count = 5;
+var seconds = document.getElementById('seconds')
+
+seconds.textContent = count;
 // document.body.appendChild(button)
 
-// function startTimer(onclick) {
+function startTimer() {
+  console.log('start timer')
+  // Sets timer
+  var timeInterval = setInterval(function() {
+    count--;
+
+    seconds.textContent = count;
+    //timerElement = count;
+    if (count === 0) {
+      // Tests if won
+      //if (isWin && count > 0) {
+        // Stops timer & clears interval
+        clearInterval(timeInterval);
+        //winGame();
+        alert('we won')
+    }
+  },1000)
+    // Time out?
+    //if (count === 0) {
+      // Clears it
+      //clearInterval(time);
+      //loseGame();
+    //}
+  //}, 1000);
+}
+
+// DO BELOW INSTEAD?????
+// Starts and stops the game.  It triggers win/lose
+// function startTimer() {
 //   // Sets timer
-//   var timerInterval = setInterval(function() {
-//   // time = setInterval(function() {
-//     count--;
-//     timeElement = count;
-//     if (count >= 0) {
+//   time = setInterval(function() {
+//     secondsLeft--;
+//     timeEl.seconds + " seconds left until the time is up!";
+
+//     if (seconds === 0) {
 //       // Tests if won
 //       if (isWin && count > 0) {
 //         // Stops timer & clears interval
 //         clearInterval(time);
 //         winGame();
+//       }
 //     }
-//   }
 //     // Time out?
 //     if (count === 0) {
 //       // Clears it
@@ -93,35 +126,8 @@ startTimer.addEventListener('click', () => {
 //   }, 1000);
 // }
 
-// DO BELOW INSTEAD?????
-// Starts and stops the game.  It triggers win/lose
-function startTimer() {
-  // Sets timer
-  time = setInterval(function() {
-    secondsLeft--;
-    timeEl.seconds + " seconds left until the time is up!";
 
-    if (seconds === 0) {
-      // Tests if won
-      if (isWin && count > 0) {
-        // Stops timer & clears interval
-        clearInterval(time);
-        winGame();
-      }
-    }
-    // Time out?
-    if (count === 0) {
-      // Clears it
-      clearInterval(time);
-      loseGame();
-    }
-  }, 1000);
-}
 
-// function startTimer (); [ {
-// if (start "quizArray" )
-//  }
-// ]
 
 function showQuestions(questions, quizContainer){
   var output = [];
@@ -164,33 +170,37 @@ var myQuestions = [ {
 
 {
   question: "2) What 2 possible values does Boolean have?",
-  answerChoice: ["a", "b", "c", "d"], 
-  right: 'c'
-  
+  answerChoice: {
+    a: 'a and b',
+    b: 'Yes and no',
+    c: 'True and false',
+    d: 'Right and wrong'
+  },
+  right: 'c',
 },
-
- {
-  question: "3) What does HTML stand for?",
-  answerChoice: ["a", "b", "c", "d"], 
-  right: 'd'
-  
-},
-
-{
-  question: "4) What does CSS stand for?",
-  answerChoice: ["a", "b", "c", "d"], 
-  right: 'd'
-  
-},
-
-{
-  question: "5) Responsive design means to make a website look...",
-  answerChoice: ["a", "b", "c", "d"], 
-  right: 'a'
-  
-},
-
 ]
+//  {
+//   question: "3) What does HTML stand for?",
+//   answerChoice: ["a", "b", "c", "d"], 
+//   right: 'd'
+  
+// },
+
+// {
+//   question: "4) What does CSS stand for?",
+//   answerChoice: ["a", "b", "c", "d"], 
+//   right: 'd'
+  
+// },
+
+// {
+//   question: "5) Responsive design means to make a website look...",
+//   answerChoice: ["a", "b", "c", "d"], 
+//   right: 'a'
+  
+// },
+
+// ]
 
 
 // counter.textContent = count;
@@ -282,7 +292,7 @@ li4.setAttribute("style", " padding: 10px; color:white; background: dimgray; pad
   count = 60;
 // Disables start button after game starts
    startButton.disabled = true;
-  startTimer()
+  //startTimer()
   showQuestion(questions[level])
 }
 
@@ -318,7 +328,7 @@ function clearStatusClass(element) {
 function win() {
   wordBlank.textContent = "🤩 WINNER! 🤩";
   winCounter++
-  startTimer.disabled = false;
+  //startTimer.disabled = false;
   setWins()
 }
 
@@ -326,7 +336,7 @@ function win() {
 function lose() {
   wordBlank.textContent = "🙁 GAME OVER 🙁";
   loseCounter++
-  startTimer.disabled = false;
+  //startTimer.disabled = false;
   setLosses()
 }
 
@@ -407,7 +417,7 @@ function startOver() {
   setLosses()
 }
 
-startTimer();
+//startTimer();
 
 
 
@@ -483,24 +493,25 @@ startTimer();
 //    const minutes = Math.floor(time / 60)
 //    let seconds = time % 60;
   
-//   // countdownEl.innerHTML = '${minutes}: ${seconds}'; }
+//   countdownEl.innerHTML = '${minutes}: ${seconds}'; }
 
-// }
+
     
-  // ]
+  
 
   // Updates count on page
 // function setCounterText() {
 //   countEl.textContent = count;
 // }
 
-// function startTimer() {
-//   startTimer('hide')
-//   shuffledQuestions = questions.sort(() => Math.random() - .5)
-//   currentQuestionIndex = 0
-//   questionContainerElement.classList.remove('hide')
-//   setNextQuestion()
-// }
+// KEEP, this makes start click.
+//function startTimer() {
+  //startTimer('hide')
+  //shuffledQuestions = questions.sort(() => Math.random() - .5)
+  //currentQuestionIndex = 0
+  //questionContainerElement.classList.remove('hide')
+  //setNextQuestion()
+//}
     
   // Text just before the answers.
   // questionEl.textContent = ;
