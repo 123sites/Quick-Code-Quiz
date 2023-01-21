@@ -1,10 +1,3 @@
-// Code quiz
-// click start and and timer starts
-// Answer a question, then get another question
-// If wrong, time is subtracted
-// Ques ans/time reaches 0 = game over
-// Save my initials to the score
-// 
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
 const questionContainerElement = document.getElementById('question-container')
@@ -17,10 +10,10 @@ startButton.addEventListener('click', startGame)
 nextButton.addEventListener('click', () => {
   currentQuestionIndex++
   setNextQuestion()
-
+})
 
 function startGame() {
-  start-btn.classList.add('hide')
+  startButton.classList.add('hide')
   shuffledQuestions = questions.sort(() => Math.random() - .5)
   currentQuestionIndex = 0
   questionContainerElement.classList.remove('hide')
@@ -35,20 +28,20 @@ function setNextQuestion() {
 function showQuestion(question) {
   questionElement.innerText = question.question
   question.answers.forEach(answer => {
-    const btn = document.createElement('btn')
-    btn.innerText = answer.text
-    btn.classList.add('btn')
+    const button = document.createElement('button')
+    button.innerText = answer.text
+    button.classList.add('btn')
     if (answer.correct) {
-      btn.dataset.correct = answer.correct
+      button.dataset.correct = answer.correct
     }
-    btn.addEventListener('click', selectAnswer)
-    answerButtonsElement.appendChild(btn)
+    button.addEventListener('click', selectAnswer)
+    answerButtonsElement.appendChild(button)
   })
 }
 
 function resetState() {
   clearStatusClass(document.body)
-  next-btn.classList.add('hide')
+  nextButton.classList.add('hide')
   while (answerButtonsElement.firstChild) {
     answerButtonsElement.removeChild(answerButtonsElement.firstChild)
   }
@@ -117,5 +110,3 @@ const questions = [
     ]
   }
 ]
-}
-)

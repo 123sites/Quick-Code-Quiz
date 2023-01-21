@@ -47,7 +47,7 @@ li {
   font-size: 50px;
 }
 
-.timer-text, #seconds {
+.timer-text {
   padding-top: 10px;
   padding-bottom: 10px;
   font-size: 32px;
@@ -55,9 +55,6 @@ li {
   text-align: center;
 }
 
-#start-btn {
-  align-items: center;
-}
 .subtitle {
   padding-top: 7px;
   padding-bottom: 25px;
@@ -94,7 +91,7 @@ li {
   --hue: var(--hue-wrong);
 }
 
-.start-btn {
+.start-btn, .next-btn {
   font-size: 2rem;
   font-weight: bold;
   padding: 10px 35px;
@@ -110,4 +107,5 @@ li {
 .hide {
   display: none;
 }
+
 
