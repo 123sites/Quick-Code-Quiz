@@ -391,7 +391,7 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
 
 generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
 
-showQuestions(questions, quizContainer);
+// showQuestions(questions, quizContainer);
 
 function clearStatusClass(element) {
   element.classList.remove('right')
@@ -407,7 +407,7 @@ function startOver() {
   setLosses()
 }
 
-startTimer();
+// startTimer();
 
 
 
