@@ -11,22 +11,25 @@ var infoEl = document.createElement("div");
 var quizEl = document.createElement("div");
 var textEl = document.createElement("div");
 var questionEl = document.createElement("div");
-// Win/lose & countdown
-var win = document.querySelector(".win");
-var lose = document.querySelector(".lose");
+// in/out of time & countdown
+var inTime = document.querySelector(".inTime");
+var outOfTime = document.querySelector(".outOfTime");
 var timeEl = document.querySelector("#seconds");
 
 // starts the timer
+// LEAVE #start-btn as named.
 var startBtn = document.querySelector("#start-btn");
 var startOver = document.querySelector(".startOver");
-
+var count = 3;
+var seconds = document.getElementById('seconds')
+seconds.textContent = count;
 // var next = document.querySelector(".next-btn");
 var timerElement = document.querySelector(".count");
 
 // var start = document.querySelector(".start");
-// var winCounter = 0;
-// var loseCounter = 0;
-var isWin = false;
+// var outOfTime Counter = 0;
+// var inTimeCounter = 0;
+var inTime = false;
 var time;
 
 var quizContainer = document.getElementById('quiz');
@@ -64,15 +67,14 @@ const answerButtonsElement = document.getElementById('answerChoice:')
 
 // button.innerText = 'Start Quiz'
 
+// THIS MAKE THE START BUTTON WORK!
 startBtn.addEventListener('click', () => {
   alert('Clicked!')
   startTimer()
 })
 
-var count = 5;
-var seconds = document.getElementById('seconds')
 
-seconds.textContent = count;
+
 // document.body.appendChild(button)
 
 function startTimer() {
@@ -89,17 +91,24 @@ function startTimer() {
         // Stops timer & clears interval
         clearInterval(timeInterval);
         //winGame();
-        alert('we won')
+        alert('You finished in time!')
     }
-  },1000)
+ 
     // Time out?
-    //if (count === 0) {
+    if (count === 0) {
       // Clears it
-      //clearInterval(time);
-      //loseGame();
-    //}
-  //}, 1000);
+      clearInterval(timeInterval);
+      alert('You ran out of time!');
+      // var stopInterval = function() {
+      //   console.log('Out of time!');
+      // }
+    }
+  }, 1000)
 }
+
+
+
+
 
 // DO BELOW INSTEAD?????
 // Starts and stops the game.  It triggers win/lose
@@ -325,16 +334,16 @@ function clearStatusClass(element) {
 }
 
 // Shows they won!
-function win() {
-  wordBlank.textContent = "🤩 WINNER! 🤩";
+function inTime() {
+  wordBlank.textContent = "🤩 YOU FINISHED IN-TIME! 🤩";
   winCounter++
   //startTimer.disabled = false;
   setWins()
 }
 
 // Shows they lost when the timer is 0.
-function lose() {
-  wordBlank.textContent = "🙁 GAME OVER 🙁";
+function outOfTime() {
+  wordBlank.textContent = "🙁 OUT OF TIME! 🙁";
   loseCounter++
   //startTimer.disabled = false;
   setLosses()
@@ -370,8 +379,8 @@ function setWins() {
 }
 // lose count
 function setLosses() {
-  lose.textContent = loseCounter;
-  localStorage.setItem("loseCount", loseCounter);
+  outOfTime.textContent = outOfTimeCounter;
+  localStorage.setItem("loseCount", outOfTimeCounter);
 }
 
 function setStatusClass(element, right) {
@@ -504,7 +513,7 @@ function startOver() {
 //   countEl.textContent = count;
 // }
 
-// KEEP, this makes start click.
+
 //function startTimer() {
   //startTimer('hide')
   //shuffledQuestions = questions.sort(() => Math.random() - .5)
