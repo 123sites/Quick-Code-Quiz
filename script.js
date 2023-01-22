@@ -202,60 +202,60 @@ function startTimer() {
 
 
 
-function showQuestions(questions, myQuestions){
-  var output = [];
-  var answerChoice;
+// function showQuestions(questions, myQuestions){
+//   var output = [];
+//   var answerChoice;
 
-  for(var i=0; i,questions.length; i++){
-    answerChoice=[];
-    for(letter in questions[i].answerChoice){
-      answerChoice.push(
-        '<label>'
-        + '<input type="radio" name="question'+i+'" value="'+letter+'">'
-        + letter + ':'
-        + questions[i].answerChoice[letter]
-        +'<label>'
-      );
-    }
+//   for(var i=0; i,questions.length; i++){
+//     answerChoice=[];
+//     for(letter in questions[i].answerChoice){
+//       answerChoice.push(
+//         '<label>'
+//         + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+//         + letter + ':'
+//         + questions[i].answerChoice[letter]
+//         +'<label>'
+//       );
+//     }
     
-  output.push(myQuestions);
-  }
- }  
+//   output.push(myQuestions);
+//   }
+//  }  
 
-let currentQuestion = 0;
-var score = 0;
-
+// let currentQuestion = 0;
+// var score = 0;
+// 
 var myQuestions = [ {
 
     question: " 1) Which of these is NOT a coding language? ",
     answerChoice: ["HTML", "code5", "Python", "JavaScript"],
     right: '1'
 },
-{
-  question: "2) What 2 possible values does Boolean have?",
-  answerChoice: [ "a and b", "Yes and no", "True and false", "Right and wrong"],
-  right: '2',
-},
- {
-  question: "3) What does HTML stand for?",
-  answerChoice: ["HyperType Made Language", "Hex Text Made Language", " Hex Type Made Language", "HyperText Markup Language"], 
-  right: '3',
+// {
+//   question: "2) What 2 possible values does Boolean have?",
+//   answerChoice: [ "a and b", "Yes and no", "True and false", "Right and wrong"],
+//   right: '2',
+// },
+//  {
+//   question: "3) What does HTML stand for?",
+//   answerChoice: ["HyperType Made Language", "Hex Text Made Language", " Hex Type Made Language", "HyperText Markup Language"], 
+//   right: '3',
   
-},
+// },
 
-{
-  question: "4) What does CSS stand for?",
-  answerChoice: ["Copy Syntax Server", "Copy Server Syntax", "Cascading Style Server", "Cascading Style Sheets"], 
-  right: '3',
+// {
+//   question: "4) What does CSS stand for?",
+//   answerChoice: ["Copy Syntax Server", "Copy Server Syntax", "Cascading Style Server", "Cascading Style Sheets"], 
+//   right: '3',
   
-},
+// },
 
-{
-  question: "5) Responsive design means to make a website look...",
-  answerChoice: ["good on any device and screen size.", "good with added features and buttons.", "clean and organized on the user interface.", "function well, using a variety of different computer languages."], 
-  right: '0',
+// {
+//   question: "5) Responsive design means to make a website look...",
+//   answerChoice: ["good on any device and screen size.", "good with added features and buttons.", "clean and organized on the user interface."], 
+//   right: '0',
 
-},
+// },
 
 ]
   
