@@ -66,8 +66,28 @@ const answerButtonsElement = document.getElementById('answerChoice:')
 
 // button.innerText = 'Start Quiz'
 
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
 
+	function showQuestions(questions, quizContainer){
+		// code will go here
+	}
 
+	function showResults(questions, quizContainer, resultsContainer){
+		// code will go here
+	}
+
+	// show the questions
+	showQuestions(questions, quizContainer);
+
+	// when user clicks submit, show results
+	submitButton.onclick = function(){
+		showResults(questions, quizContainer, resultsContainer);
+	}
+}
+
+function startBtn(){
+  console.log('startBtn')
+}
 // THIS MAKE THE START BUTTON WORK!
 startBtn.addEventListener('click', () => {
   alert('Clicked!')
@@ -79,6 +99,10 @@ startBtn.addEventListener('click', () => {
 
 // document.body.appendChild(button)
 
+// subtTime.addEventListener("click", function() {
+//   if (count > 0) {
+  
+// NEED THE FCN STARTTIMER
 function startTimer() {
   console.log('start timer')
   // Sets timer
@@ -176,63 +200,39 @@ function showQuestions(questions, quizContainer){
     question: " 1) Which of these is NOT a coding language? ",
     answerChoice: ["HTML", "code5", "Python", "JavaScript"],
     right: '1'
-    
-  },
-  ]
-
+},
+{
+  question: "2) What 2 possible values does Boolean have?",
+  answerChoice: [ "a and b", "Yes and no", "True and false", "Right and wrong"],
+  right: '2',
+},
+ {
+  question: "3) What does HTML stand for?",
+  answerChoice: [], 
+  right: '3',
   
-var myQuestions = [ {
+},
 
-  question: " 1) Which of these is NOT a coding language? ",
-  answerChoice: {
-    a: 'HTML',
-    b: 'code5',
-    c: 'Python',
-    d: 'JavaScript'
+{
+  question: "4) What does CSS stand for?",
+  answerChoice: [], 
+  right: '3',
+  
 },
-  right: 'b', 
+
+{
+  question: "5) Responsive design means to make a website look...",
+  answerChoice: [], 
+  right: '0',
+
 },
+
 ]
 
 // This displays the question & answer in the Console...IT WORKS!
 for (const element of myQuestions) {
   console.log(element);
 }
-// {
-//   question: "2) What 2 possible values does Boolean have?",
-//   answerChoice: {
-//     a: 'a and b',
-//     b: 'Yes and no',
-//     c: 'True and false',
-//     d: 'Right and wrong'
-//   },
-//   right: 'c',
-// },
-// ]
-//  {
-//   question: "3) What does HTML stand for?",
-//   answerChoice: ["a", "b", "c", "d"], 
-//   right: 'd'
-  
-// },
-
-// {
-//   question: "4) What does CSS stand for?",
-//   answerChoice: ["a", "b", "c", "d"], 
-//   right: 'd'
-  
-// },
-
-// {
-//   question: "5) Responsive design means to make a website look...",
-//   answerChoice: ["a", "b", "c", "d"], 
-//   right: 'a'
-  
-// },
-
-// ]
-
-
 // counter.textContent = count;
 
 // subtTime.addEventListener("click", function() {
@@ -413,6 +413,21 @@ function setStatusClass(element, right) {
   }
 }
 
+  //  const = myQuestions.querySelectorAll();
+
+  //   // set onclick attribute to all available options
+  //   for(i=0; i < option.length; i++){
+  //       option[i].setAttribute("onclick", "optionSelected(this)");
+  //   }
+
+
+// if startQuiz button clicked
+// questions show in the console with the
+start_btn = ()=>{
+  info_box.classList.add("activeInfo"); //show info box
+}
+
+// Below 3 functions work, show questions in console & no errors.
 function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
 
 	function showQuestions(questions, quizContainer){
@@ -423,10 +438,10 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
 		// code will go here
 	}
 
-	showQuestions(questions, quizContainer);
-	submitButton.onclick = function(){
-		showResults(questions, quizContainer, resultsContainer);
-	}
+	// showQuestions(questions, quizContainer);
+	// submitButton.onclick = function(){
+	// 	showResults(questions, quizContainer, resultsContainer);
+	// }
 }
 
 generateQuiz(myQuestions, question, answerChoice, submitButton);
