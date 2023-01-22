@@ -30,7 +30,6 @@ var timerElement = document.querySelector(".count");
 // var outOfTime Counter = 0;
 // var inTimeCounter = 0;
 var inTime = false;
-var time;
 
 var quizContainer = document.getElementById('quiz');
 var resultsContainer = document.getElementById('results');
@@ -67,6 +66,8 @@ const answerButtonsElement = document.getElementById('answerChoice:')
 
 // button.innerText = 'Start Quiz'
 
+
+
 // THIS MAKE THE START BUTTON WORK!
 startBtn.addEventListener('click', () => {
   alert('Clicked!')
@@ -99,11 +100,17 @@ function startTimer() {
       // Clears it
       clearInterval(timeInterval);
       alert('You ran out of time!');
-      // var stopInterval = function() {
-      //   console.log('Out of time!');
-      // }
+      var stopInterval = function() {
+        console.log('Out of time!');
+      }
     }
   }, 1000)
+
+  if (myQuestions == null || myQuestions == "") {
+    showQuestions = ""
+  } else {
+    showQuestions = " + myQuestions + ";
+  }
 }
 
 
@@ -297,12 +304,12 @@ li4.setAttribute("style", " padding: 10px; color:white; background: dimgray; pad
 
 
   function start() {
- isWin = false;
+ inTime = false;
   count = 60;
 // Disables start button after game starts
    startButton.disabled = true;
   //startTimer()
-  showQuestion(questions[level])
+  showQuestion(myQuestions[level])
 }
 
 //  startButton.classList.add('hide')
@@ -408,7 +415,7 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
 	}
 }
 
-generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+generateQuiz(myQuestions, question, answerChoice, submitButton);
 
 // showQuestions(questions, quizContainer);
 
