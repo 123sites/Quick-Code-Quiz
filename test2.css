@@ -1,7 +1,8 @@
 *, *::before, *::after {
   box-sizing: border-box;
   font-family: monospace, sans-serif;
-  border-radius: 10px;
+  border-radius: 20px;
+  color: rgb(246, 245, 204);
 }
 
 :root {
@@ -13,8 +14,11 @@
 div {
   font-size: 30px; 
   font-weight: bolder;
-  color: hsl(265, 90%, 34%);
+  color: rgb(225, 225, 220);
+  text-align: center;
+  margin: 50px;
 }
+
 body {
   background-color:rgb(179, 164, 184) ;
   padding: 0;

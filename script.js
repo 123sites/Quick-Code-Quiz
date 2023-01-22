@@ -22,7 +22,7 @@ var startBtn = document.querySelector("#start-btn");
 var startOver = document.querySelector(".startOver");
 var count = 3;
 var seconds = document.getElementById('seconds')
-seconds.textContent = count;
+// seconds.textContent = count;
 // var next = document.querySelector(".next-btn");
 var timerElement = document.querySelector(".count");
 
@@ -66,32 +66,68 @@ const answerButtonsElement = document.getElementById('answerChoice:')
 
 // button.innerText = 'Start Quiz'
 
-function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+// //move forward the quiz
+// function startTimer() {
+//   startTimer.addEventListener('click', () => {
+//     let answerChoice = getSelected();
+//     if (answer) {
+//       if (ans == myQuestions[index].right) {
+//         score++;
+//       }
+//     }
+//     index++;
+//     if (index < myQuestions.length) {
+//       getquiz();
+//     } else {
+//       alert('score :' + score);
+//       location.reload();
+//     }
+//   });
+// }
 
-	function showQuestions(questions, quizContainer){
-		// code will go here
-	}
 
-	function showResults(questions, quizContainer, resultsContainer){
-		// code will go here
-	}
 
-	// show the questions
-	showQuestions(questions, quizContainer);
 
-	// when user clicks submit, show results
-	submitButton.onclick = function(){
-		showResults(questions, quizContainer, resultsContainer);
-	}
-}
 
-function startBtn(){
-  console.log('startBtn')
-}
+
+
+// function startTimer(questions, quizContainer, resultsContainer, submitButton){
+
+// 	function showQuestions(questions, quizContainer){
+// 		// code will go here
+// 	}
+
+// 	function showResults(questions, quizContainer, resultsContainer){
+// 		// code will go here
+// 	}
+
+// 	// show the questions
+// 	showQuestions(questions, quizContainer);
+
+// 	// when user clicks submit, show results
+// 	submitButton.onclick = function(){
+// 		showResults(questions, quizContainer, resultsContainer);
+// 	}
+// }
+
+// function eventHandler(event) {
+//   if (event.type === 'myQuestions') {
+//     /* handle a full screen toggle */
+//   } else /* fullscreenerror */ {
+//     /* handle a full screen toggle error */
+//   }
+// }
+
+
+// function startBtn(){
+//   console.log('startBtn')
+// }
 // THIS MAKE THE START BUTTON WORK!
-startBtn.addEventListener('click', () => {
+startBtn.addEventListener('click', ()=>{
   alert('Clicked!')
   startTimer()
+
+  console.log("startTimer .addEvent")
 })
 
 
@@ -105,6 +141,7 @@ startBtn.addEventListener('click', () => {
 // NEED THE FCN STARTTIMER
 function startTimer() {
   console.log('start timer')
+  
   // Sets timer
   var timeInterval = setInterval(function() {
     count--;
@@ -117,6 +154,7 @@ function startTimer() {
         // Stops timer & clears interval
         clearInterval(timeInterval);
         //winGame();
+        console.log('...finished in time')
         alert('You finished in time!')
     }
  
@@ -125,17 +163,11 @@ function startTimer() {
       // Clears it
       clearInterval(timeInterval);
       alert('You ran out of time!');
-      var stopInterval = function() {
-        console.log('Out of time!');
+      // var stopInterval = function() {
+      //   console.log('Out of time!');
       }
-    }
+    
   }, 1000)
-
-  if (myQuestions == null || myQuestions == "") {
-    showQuestions = ""
-  } else {
-    showQuestions = " + myQuestions + ";
-  }
 }
 
 
@@ -170,7 +202,7 @@ function startTimer() {
 
 
 
-function showQuestions(questions, quizContainer){
+function showQuestions(questions, myQuestions){
   var output = [];
   var answerChoice;
 
@@ -185,17 +217,15 @@ function showQuestions(questions, quizContainer){
         +'<label>'
       );
     }
-    output.push(
-      '<div class="question".'+ questions[i].questions + '</div>'
-      + '<div class="answerChoice">' + answerChoice.join('') + '</div>'
     
-    );
+  output.push(myQuestions);
   }
-    quizContainer.innerHTML = output.join('')
-  }  
+ }  
 
+let currentQuestion = 0;
+var score = 0;
 
-  var myQuestions = [ {
+var myQuestions = [ {
 
     question: " 1) Which of these is NOT a coding language? ",
     answerChoice: ["HTML", "code5", "Python", "JavaScript"],
@@ -208,27 +238,27 @@ function showQuestions(questions, quizContainer){
 },
  {
   question: "3) What does HTML stand for?",
-  answerChoice: [], 
+  answerChoice: ["HyperType Made Language", "Hex Text Made Language", " Hex Type Made Language", "HyperText Markup Language"], 
   right: '3',
   
 },
 
 {
   question: "4) What does CSS stand for?",
-  answerChoice: [], 
+  answerChoice: ["Copy Syntax Server", "Copy Server Syntax", "Cascading Style Server", "Cascading Style Sheets"], 
   right: '3',
   
 },
 
 {
   question: "5) Responsive design means to make a website look...",
-  answerChoice: [], 
+  answerChoice: ["good on any device and screen size.", "good with added features and buttons.", "clean and organized on the user interface.", "function well, using a variety of different computer languages."], 
   right: '0',
 
 },
 
 ]
-
+  
 // This displays the question & answer in the Console...IT WORKS!
 for (const element of myQuestions) {
   console.log(element);
@@ -317,12 +347,22 @@ li4.setAttribute("style", " padding: 10px; color:white; background: dimgray; pad
   //   }
 
 
-  function start() {
- inTime = false;
-  count = 60;
+// Below was part of function start() did not seem to do anything.
+//  inTime = false;
+//   count = 60;
 // Disables start button after game starts
-   startButton.disabled = true;
-  //startTimer()
+  //  startButton.disabled = true;
+
+  // window.confirm
+  // if (confirm("Click Start to begin the quiz.")) {
+  //   txt = "Begin the quiz!";
+  // } 
+ 
+  // let indexNumber = 0;
+
+  function start() {
+  startTimer()
+  currentQuestion = 0;
   showQuestion(myQuestions[level])
 }
 
@@ -427,10 +467,10 @@ start_btn = ()=>{
   info_box.classList.add("activeInfo"); //show info box
 }
 
-// Below 3 functions work, show questions in console & no errors.
-function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+// Added "myQuestions. Below 3 functions work, show questions in console & no errors.
+function generateQuiz(myQuestions, questions, quizContainer, resultsContainer, submitButton){
 
-	function showQuestions(questions, quizContainer){
+	function showQuestions(myQuestions, questions, quizContainer){
 		// code will go here
 	}
 
@@ -461,6 +501,77 @@ function startOver() {
   setWins()
   setLosses()
 }
+
+
+
+
+
+
+
+let shuffledQuestions = [] //empty array to hold shuffled selected questions out of all available questions
+
+function handleQuestions() { 
+    //function to shuffle and push 10 questions to shuffledQuestions array
+//app would be dealing with 10questions per session
+    while (shuffledQuestions.length <= 9) {
+        const random = questions[Math.floor(Math.random() * questions.length)]
+        if (!shuffledQuestions.includes(random)) {
+            shuffledQuestions.push(random)
+        }
+    }
+}
+
+
+let questionNumber = 1 //holds the current question number
+let playerScore = 0  //holds the player score
+let wrongAttempt = 0 //amount of wrong answers picked by player
+let indexNumber = 0 //will be used in displaying next question
+
+// function for when all questions being answered
+function handleEndGame() {
+  let remark = null
+  let remarkColor = null
+
+  // condition check for player remark and remark color
+  if (playerScore <= 3) {
+      remark = "Bad Grades, Keep Practicing."
+      remarkColor = "red"
+  }
+  else if (playerScore >= 4 && playerScore < 7) {
+      remark = "Average Grades, You can do better."
+      remarkColor = "orange"
+  }
+  else if (playerScore >= 7) {
+      remark = "Excellent, Keep the good work going."
+      remarkColor = "green"
+  }
+  const playerGrade = (playerScore / 5) * 100
+
+      //data to display to score board
+      document.getElementById('remarks').innerHTML = remark
+      document.getElementById('remarks').style.color = remarkColor
+      document.getElementById('grade-percentage').innerHTML = playerGrade
+      document.getElementById('wrong-answers').innerHTML = wrongAttempt
+      document.getElementById('right-answers').innerHTML = playerScore
+      document.getElementById('score-modal').style.display = "flex"
+  
+  }
+  
+  //closes score modal, resets game and reshuffles questions
+  function closeScoreModal() {
+      questionNumber = 1
+      playerScore = 0
+      wrongAttempt = 0
+      indexNumber = 0
+      shuffledQuestions = []
+      NextQuestion(indexNumber)
+      document.getElementById('score-modal').style.display = "none"
+  }
+  
+  //function to close warning modal
+  function closeOptionModal() {
+      document.getElementById('option-modal').style.display = "none"
+  }
 
 //startTimer();
 
