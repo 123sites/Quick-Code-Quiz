@@ -76,6 +76,7 @@ startBtn.addEventListener('click', () => {
 
 
 
+
 // document.body.appendChild(button)
 
 function startTimer() {
@@ -170,10 +171,18 @@ function showQuestions(questions, quizContainer){
   }  
 
 
+  var myQuestions = [ {
+
+    question: " 1) Which of these is NOT a coding language? ",
+    answerChoice: ["HTML", "code5", "Python", "JavaScript"],
+    right: '1'
+    
+  },
+  ]
+
+  
 var myQuestions = [ {
-  // question:"1) Which of these is NOT a coding language?",
-  // answerChoice: ["a", "b", "c", "d"], 
-  // answer: "code+"
+
   question: " 1) Which of these is NOT a coding language? ",
   answerChoice: {
     a: 'HTML',
@@ -183,18 +192,23 @@ var myQuestions = [ {
 },
   right: 'b', 
 },
-
-{
-  question: "2) What 2 possible values does Boolean have?",
-  answerChoice: {
-    a: 'a and b',
-    b: 'Yes and no',
-    c: 'True and false',
-    d: 'Right and wrong'
-  },
-  right: 'c',
-},
 ]
+
+// This displays the question & answer in the Console...IT WORKS!
+for (const element of myQuestions) {
+  console.log(element);
+}
+// {
+//   question: "2) What 2 possible values does Boolean have?",
+//   answerChoice: {
+//     a: 'a and b',
+//     b: 'Yes and no',
+//     c: 'True and false',
+//     d: 'Right and wrong'
+//   },
+//   right: 'c',
+// },
+// ]
 //  {
 //   question: "3) What does HTML stand for?",
 //   answerChoice: ["a", "b", "c", "d"], 
