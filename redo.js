@@ -1,13 +1,28 @@
+// Directions***********************
+// This was a challenge where I had to create a multiple choice, 
+// timed code quiz.  It had to run in the browser. It needed to 
+// feature dynamically updated HTML and CSS, powered by JavaScript 
+// code.  There needed to be clean, polished, and responsive user 
+//interface.
 
-var question= document.getElementById('question');
-var quizContainer= document.getElementById('quiz-container');
-var scorecard= document.getElementById('scorecard');
+// The functions that it needed were:
+// 1) When the start button is clicked, the timer starts 
+// when presented with a question.
+// 2) Points subtracted when there is a wrong answer.
+// 3) When either all questions are answered or when the timer 
+// reaches 0, the game is over.
+// 4) When the game is over, initials and score are saved. 
+
+// var code
+var ques= document.getElementById('ques');
+var quizContainer= document.getElementById('container');
 var choice0= document.getElementById('choice0');
 var choice1= document.getElementById('choice1');
 var choice2= document.getElementById('choice2');
 var choice3= document.getElementById('choice3');
 var next= document.querySelector('.next');
 var points= document.getElementById('score');
+var scoreResults= document.getElementById('scoreResults');
 var span= document.querySelectorAll('span');
 var i=0;
 var score= 0;
@@ -15,32 +30,31 @@ var score= 0;
 // Q & A
 var dataArray= [
   {
-    question : 'Eritrea, which became the 182nd member of the UN in 1993, is in the continent of',
+    ques : '1) Which of these is NOT a coding language?',
     option : ['Asia','Africa','Europe','Australia'],
     ans : 'Africa'
 },
 {
-    question : 'Garampani sanctuary is located at',
+    ques : '',
     option : ['Junagarh, Gujarat','Diphu, Assam','Kohima, Nagaland','Gangtok, Sikkim'],
     ans : 'Diphu, Assam'
 },
 {
-    question : 'For which of the following disciplines is Nobel Prize awarded?',
+    ques : '',
     option : ['Physics and Chemistry','Physiology or Medicine','Literature, Peace and Economics','All of the above'],
     ans : 'All of the above'
 },
 {
-    question : 'Hitler party which came into power in 1933 is known as',
+    ques : '',
     option : ['Labour Party','Nazi Party','Ku-Klux-Klan','Democratic Party'],
     ans : 'Nazi Party'
 },
 {
-    question : 'First human heart transplant operation conducted by Dr. Christiaan Barnard on Louis Washkansky, was conducted in',
+    ques : '',
     option : ['1967','1968','1958','1922'],
     ans : '1967'
 }
 ]
-
 
 // Timer code ------------------------------------------
 function setTime() {
@@ -57,34 +71,32 @@ function setTime() {
 }
 setTime();
 
-
 //function to display questions
 function displayQuestion(){
   for(var a=0;a<span.length;a++){
       span[a].style.background='none';
   }
-  question.innerHTML= 'Q.'+(i+1)+' '+dataArray[i].question;
+  ques.innerHTML= 'Q.'+(i+1)+' '+dataArray[i].ques;
   option0.innerHTML= dataArray[i].option[0];
   option1.innerHTML= dataArray[i].option[1];
   option2.innerHTML= dataArray[i].option[2];
   option3.innerHTML= dataArray[i].option[3];
   stat.innerHTML= "Question"+' '+(i+1)+' '+'of'+' '+dataArray.length;
 }
-
-//function to calculate scores
+// calculates scores
 function calcScore(e){
   if(e.innerHTML===dataArray[i].answer && score<dataArray.length)
   {
       score= score+1;
-      document.getElementById(e.id).style.background= 'limegreen';
+      document.getElementById(e.id).style.background= 'green';
   }
   else{
-      document.getElementById(e.id).style.background= 'tomato';
+      document.getElementById(e.id).style.background= 'red';
   }
   setTimeout(nextQuestion,300);
 }
 
-//function to display next question
+// display next question
 function nextQuestion(){
   if(i<dataArray.length-1)
   {
@@ -98,15 +110,15 @@ function nextQuestion(){
   }
 }
 
-//click events to next button
+// Click events to next button
 next.addEventListener('click',nextQuestion);
 
-//Back to Quiz button event
+// Button event, returns to quiz
 function backToQuiz(){
   location.reload();
 }
 
-//function to check Answers
+// Checks answers
 function checkAnswer(){
   var answerBank= document.getElementById('answerBank');
   var answers= document.getElementById('answers');
