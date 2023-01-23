@@ -16,6 +16,8 @@
 // var
 var ques= document.getElementById('ques');
 var quizContainer= document.getElementById('container');
+var count = 3;
+var seconds = document.getElementById('seconds');
 var choice0= document.getElementById('choice0');
 var choice1= document.getElementById('choice1');
 var choice2= document.getElementById('choice2');
@@ -26,8 +28,13 @@ var scoreResults= document.getElementById('scoreResults');
 var span= document.querySelectorAll('span');
 var i=0;
 var score= 0;
+// in/out of time & countdown
+var inTime = document.querySelector(".inTime");
+var outOfTime = document.querySelector(".outOfTime");
+var timeEl = document.querySelector("#seconds");
 
 // Q & A
+console.log('dataArray')
 var dataArray= [
   {
     ques : ' Which of these is NOT a coding language?',
@@ -56,31 +63,32 @@ var dataArray= [
 }
 ]
 
-// NOT WORKING----------------------------------------
-// var startBtn = document.querySelector("#start-btn");
+// Start
+var startBtn = document.querySelector("#startBtn");
+console.log('startBtn68') 
 
-// THIS MAKE THE START BUTTON WORK!
+// THIS MAKE THE START BUTTON WORK!  ALSO, MAKES ALERT BOX WORK!
 startBtn.addEventListener('click', ()=>{
-  alert('Clicked!')
-  startTimer()
+  alert('Can you get 100%, before the time is up?')
+  ques()
 
-  console.log("startTimer .addEvent")
+  console.log("startBtn75")
 })
 
 // Timer code ------------------------------------------
-function setTime() {
+function dataArray() {
   // Sets interval in variable
   var timerInterval = setInterval(function() {
     secondsLeft--;
     timerEl.textContent = secondsLeft + " seconds left!";
-
+    console.log("timer")
     if(secondsLeft === 0) {
       // Stops it
       clearInterval(timerInterval);
     }
   }, 1000);
 }
-setTime();
+
 
 //function to display questions
 function displayQuestion(){
@@ -113,6 +121,7 @@ function nextQuestion(){
   {
       i=i+1;
       displayQuestion();
+      console.log(dataArray);
   }
   else{
       points.innerHTML= score+ '/'+ dataArray.length;
@@ -143,5 +152,20 @@ function checkAnswer(){
   }
 }
 
+// Shows they won!
+function inTime() {
+  wordBlank.textContent = "🤩 YOU FINISHED IN-TIME! 🤩";
+  winCounter++
+  //startTimer.disabled = false;
+  setWins()
+}
+
+// Shows they lost when the timer is 0.
+function outOfTime() {
+  wordBlank.textContent = "🙁 OUT OF TIME! 🙁";
+  loseCounter++
+  //startTimer.disabled = false;
+  setLosses()
+}
 
 displayQuestion();
