@@ -1,179 +1,136 @@
 *{
   margin: 0;
   padding: 0;
-  display: flex, wrap;
   box-sizing: border-box;
-  font-family: monospace, sans-serif;
 }
-/* body{
+body{
   font-family: sans-serif;
-  background: (rgba(53, 132, 78, 0.323),rgba(48, 185, 73, 0.5));
+  background: linear-gradient(115deg, rgba(101,151,209,0.8),rgba(202,102,211,0.5)),url(/quizbg.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
-} */
-
-
-
+}
 
 #title{
   text-align: center;
   padding: 0.8rem 0;
   font-size: 3rem;
-  color: white;
-  background: rgba(50, 167, 196, 0.55);
+  color: hsl(273, 87%, 25%);
+  background: rgba(105,224,90,0.55);
+  font-family: monospace, sans-serif;
+}
+#subtitle, .timer{
+  text-align: center;
+  padding: 0.8rem 0;
+  font-size: 2.5rem;
+  color: hsl(273, 88%, 33%);
+  text-align: center;
+  background: rgba(105,224,90,0.55);
   font-family: monospace, sans-serif;
 }
 
-h2 {
+
+#btn {
+  text-align: center;
+  align-items:center;
+  align-content:center;
+
+}
+
+#btn, #startBtn {
+  --hue: var(--hue-neutral);
   display: flex;
-  flex-direction: column;
-  border-radius: 1rem;
-  margin-top: 1.5rem;
-  padding: 10px;
-  text-align: center;
-  font-size: 35px;
-  text-align: center;
-  font-weight:bold;
-  text-decoration: underline;
-  font-family: monospace, sans-serif;
+  border: 5px solid hsl(273, 91%, 14%);
+  background-color: hsl(273, 88%, 33%);
+  border-radius: 10px;
+  color: white;
+  outline: none;
 
 }
 
-div {
-  display: flex, wrap;
+#startbtn:hover {
+  border-color: black;
 }
 
-#quiz-container, div {
-  margin-bottom: 0px;
-}
 .questions{
-  display: flex, wrap;
   margin: 3rem auto;
   width: 90vw;
-  padding: 1rem;
-  font-size: 25px;
-  text-align: center;
-  color: white;
-  background: rgba(43, 100, 223, 0.55);
+  padding: 2rem;
+  background: rgba(0,255,221,0.45);
   cursor: default;
   border-radius: 1rem;
 }
 #question{
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 .option{
-  display: flex, wrap;
   margin-bottom: 0.5rem;
-  margin-left: 40px; 
-  padding-left: 15px;
-  font-size: 25px;
+  font-size: 1.2rem;
   border-bottom: solid 0.1rem blue;
-  max-width: 100rem;
-  color: rgb(26, 131, 163);
-  font-weight: bolder;
+  width: 15rem;
   background: lightblue;
   border-radius: 1rem;
-  align-items: center;
-  text-align: center;
-  align-content: center;
 }
 .option:hover{
   color: white;
 }
 ol{
-  display: flex, wrap;
   position: relative;
   padding: 0 1.5rem;
-  color: rgb(123, 153, 218);
-  align-items: center;
-  text-align: center;
-  align-content: center;
+  color: rgb(1,73,73);
 }
 span{
-  display: flex, wrap;
   padding: 0.1rem 0.7rem;
   border-radius: 1rem;
-  align-items: center;
-  text-align: center;
-  align-content: center;
-
 }
 #answer{
-  display: flex, wrap;
   margin-top: 2.5rem;
-  align-items: center;
-  text-align: center;
-  align-content: center;
 }
 #stat{
   margin-top: 1.5rem;
-  color: white;
-  text-align: center;
-  font-size: 20px;
-  border-radius: 20;
+  color: rgb(6,17,168);
 }
 .buttons{
   text-align: center;
 }
 button{
-  display: flex, wrap;
-  align-items: center;
-  padding: 6px 1rem;
+  padding: 0.2rem 1.5rem;
   border: none;
   outline: none;
-  font-size: 2rem;
+  font-size: 1.5rem;
   border-radius: 1.5rem;
-  color: black;
-  background: rgba(50, 167, 196, 0.55);
-});
+  color: rgba(93,53,156,0.98);
+  background: rgba(161,177,19,0.82);
 }
 button:active{
-  background: rgb(117, 117, 243);
+  background: lavender;
 }
 #scoreboard,#answerBank{
-  display: flex, wrap;
-  max-width: 40rem;
+  width: 20rem;
   background: rgba(230,230,250,0.77);
-  padding: .5rem;
+  padding: 2rem;
   text-align: center;
   margin: auto;
   position: relative;
-  top: 1rem;
-  text-align: center;
-  border-radius: 20;
+  top: 5rem;
+  display: none;
 }
 #score-title{
-  display: flex, wrap;
-  flex-wrap: wrap;
   margin: 1rem 0;
-  background: rgba(50, 167, 196, 0.55);
-  border-radius: 20;
-  text-align: center;
-  font-family: monospace, sans-serif;
 }
-#score-btn,#check-answer, h2{
-  display: flex, wrap;
+#score-btn,#check-answer{
   margin-top: 1rem;
-  border-radius: 20;
 }
 #score{
-  display: flex, wrap;
   font-size: 2.5rem;
-  border-radius: 20;
 }
 #answerBank li{
-  display: flex, wrap;
+  text-align: left;
   margin-bottom: 0.2rem;
   font-size: larger;
-  align-items: center;
-  text-align: center;
-  align-content: center;
-  border-radius: 20;
 }
 #answers{
-  display: flex, wrap;
   margin-top: 1rem;
-  text-align: center;
 }
+
