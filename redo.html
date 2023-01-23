@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quick Code Quiz!</title>
-    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
-    <!-- css file link -->
+    <!-- CSS -->
     <link rel="stylesheet" href="redo.css">
 </head>
 <body>
+    <!-- Title -->
     <h1 id="title">Quick Code Quiz!</h1>
-    <!-- <h2 id="subtitle">Can you get 100% and finish this quiz before the time is up?</h2> -->
     <h2 class="timer" style="text-align:center;"> Press start to begin! </h1>
+        <!-- Start button -->
       <div class="startButton">      
         <button id="startBtn" class="btn" style="text-align:center">Start</button>
     <div id="main"></div>
-    <!-- quiz-container -->
+    <!-- Container -->
     <div id="container">
-      <!-- question container -->
+      <!-- ques container -->
       <div class="questions">
           <h2 id="ques"></h2>
           <ol type="A">
@@ -26,33 +26,29 @@
               <li class="option"><span id="option2" onclick="calcScore(this)"></span></li>
               <li class="option"><span id="option3" onclick="calcScore(this)"></span></li>
           </ol>
+          <!-- stats -->
           <h4 id="stat"></h4>
       </div>
-
+      <!-- Next button -->
         <div class="buttons">
             <button type="button" class="next">Next</button>
         </div>
-
     </div>
-
-    <!-- scoreboard section -->
+    <!-- Scoreboard -->
     <div id="scoreboard">
-        <h2 id="score-title">Your Score</h2>
+        <h2 id="scoreTitle">Your Score</h2>
         <h2 id="score"></h2>
-        <button type="button" id="score-btn" onclick="backToQuiz()">Back to Quiz</button>
-        <button type="button" id="check-it" onclick="checkAnswer()">Check Answers</button>
+        <button type="button" id="scoreBtn" onclick="backToQuiz()">Redo Quiz</button>
+        <button type="button" id="check" onclick="checkAnswer()">Answers</button>
     </div>
-
-    <!-- answers section -->
+    <!-- Answers -->
     <div id="answerBank">
         <h2>Answers :</h2>
         <ol type="1" id="answers">
-
         </ol>
-        <button type="button" id="score-btn" onclick="backToQuiz()">Back to Quiz</button>
+        <button type="button" id="scoreBtn" onclick="backToQuiz()">Back to Quiz</button>
     </div>
-
-    <!-- javascript file source -->
+    <!-- Javascript -->
     <script src="redo.js"></script>
 </body>
 </html>
