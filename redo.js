@@ -83,20 +83,60 @@ function startBtn() {
   }, 1000)
 }
 
+// function startTimer() {
+//   console.log("startTimer86")
+//   // Sets interval in variable
+//   var timerInterval = setInterval(function() {
+//     secondsLeft--;
+//     timerEl.textContent = secondsLeft + " out of time!";
+//     console.log("timer")
+//     if(secondsLeft === 0) {
+//       // Stops it
+//       clearInterval(timerInterval);
+//     }
+//   }, 1000);
+// }
+
+// DO BELOW INSTEAD?????
+// Starts and stops the game.  It triggers win/lose
 function startTimer() {
-  console.log("startTimer86")
-  // Sets interval in variable
-  var timerInterval = setInterval(function() {
+  // Sets timer
+  console.log("startTimer")
+  time = setInterval(function() {
     secondsLeft--;
-    timerEl.textContent = secondsLeft + " out of time!";
-    console.log("timer")
-    if(secondsLeft === 0) {
-      // Stops it
-      clearInterval(timerInterval);
+    timeEl.seconds + " seconds left until the time is up!";
+
+    if (seconds === 0) {
+      // Tests if won
+      if (isWin && count > 0) {
+        // Stops timer & clears interval
+        clearInterval(time);
+        winGame();
+      }
+    }
+    // Time out?
+    if (count === 0) {
+      // Clears it
+      clearInterval(time);
+      loseGame();
     }
   }, 1000);
 }
 
+// let seconds = startTimer;
+// function startTimer() {
+//   // Sets timer
+//   console.log("startTimer")
+//   // time = setInterval(function() {
+//     var seconds = 3;
+//     var timer= setInterval(function(){
+//       document.getElementById('timerDisplay').innerHTML='00:'+sec;
+//       sec--;
+//       if (sec < 0) {
+//         clearInterval(timer);
+//         alert("Out of time!")
+//       }
+//     )}, 1000;
 
 //function to display questions
 function displayQuestion(){
