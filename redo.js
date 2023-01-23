@@ -17,7 +17,7 @@
 var ques= document.getElementById('ques');
 var quizContainer= document.getElementById('container');
 var count = 3;
-var seconds = document.getElementById('seconds');
+var secondsLeft = document.getElementById('seconds');
 var choice0= document.getElementById('choice0');
 var choice1= document.getElementById('choice1');
 var choice2= document.getElementById('choice2');
@@ -31,10 +31,88 @@ var score= 0;
 // in/out of time & countdown
 var inTime = document.querySelector(".inTime");
 var outOfTime = document.querySelector(".outOfTime");
-var timeEl = document.querySelector("#seconds");
+var timerEl = document.querySelector("#seconds");
+var timerElement = document.querySelector(".count");
+
+
+// Start
+var startBtn = document.querySelector("#startBtn");
+console.log('startBtn39') 
+
+// THIS MAKE THE START BUTTON WORK!  ALSO, MAKES ALERT BOX WORK!
+startBtn.addEventListener('click', ()=>{
+  alert('Can you get 100%, before the time is up?')
+  startTimer()
+
+  console.log("startBtn47")
+})
+
+function startBtn() {
+  startTimer()
+  currentQuestion = 0;
+  showQuestion(dataArray[level])
+
+
+// Timer code ------------------------------------------
+  // Sets timer
+  var timeInterval = setInterval(function() {
+    count--;
+
+    let = startTimer = 3;
+    seconds.textContent = count;
+    //timerElement = count;
+    if (count === 0) {
+      // Tests if won
+      //if (isWin && count > 0) {
+        // Stops timer & clears interval
+        clearInterval(timeInterval);
+        //winGame();
+        console.log('...finished in time')
+        alert('You finished in time!')
+    }
+ 
+    // Time out?
+    if (count === 0) {
+      // Clears it
+      clearInterval(timeInterval);
+      alert('You ran out of time!');
+      // var stopInterval = function() {
+      //   console.log('Out of time!');
+      }
+    
+  }, 1000)
+}
+
+function startTimer() {
+  console.log("startTimer86")
+  // Sets interval in variable
+  var timerInterval = setInterval(function() {
+    secondsLeft--;
+    timerEl.textContent = secondsLeft + " out of time!";
+    console.log("timer")
+    if(secondsLeft === 0) {
+      // Stops it
+      clearInterval(timerInterval);
+    }
+  }, 1000);
+}
+
+
+//function to display questions
+function displayQuestion(){
+  for(var a=0;a<span.length;a++){
+      span[a].style.background='none';
+  }
+  ques.innerHTML= (i+1)+')'+dataArray[i].ques;
+  option0.innerHTML= dataArray[i].option[0];
+  option1.innerHTML= dataArray[i].option[1];
+  option2.innerHTML= dataArray[i].option[2];
+  option3.innerHTML= dataArray[i].option[3];
+  stat.innerHTML= "Question"+' '+(i+1)+' '+'of'+' '+dataArray.length;
+}
 
 // Q & A
-console.log('dataArray')
+console.log('dataArrayQuestions')
 var dataArray= [
   {
     ques : ' Which of these is NOT a coding language?',
@@ -63,45 +141,6 @@ var dataArray= [
 }
 ]
 
-// Start
-var startBtn = document.querySelector("#startBtn");
-console.log('startBtn68') 
-
-// THIS MAKE THE START BUTTON WORK!  ALSO, MAKES ALERT BOX WORK!
-startBtn.addEventListener('click', ()=>{
-  alert('Can you get 100%, before the time is up?')
-  ques()
-
-  console.log("startBtn75")
-})
-
-// Timer code ------------------------------------------
-function dataArray() {
-  // Sets interval in variable
-  var timerInterval = setInterval(function() {
-    secondsLeft--;
-    timerEl.textContent = secondsLeft + " seconds left!";
-    console.log("timer")
-    if(secondsLeft === 0) {
-      // Stops it
-      clearInterval(timerInterval);
-    }
-  }, 1000);
-}
-
-
-//function to display questions
-function displayQuestion(){
-  for(var a=0;a<span.length;a++){
-      span[a].style.background='none';
-  }
-  ques.innerHTML= (i+1)+')'+dataArray[i].ques;
-  option0.innerHTML= dataArray[i].option[0];
-  option1.innerHTML= dataArray[i].option[1];
-  option2.innerHTML= dataArray[i].option[2];
-  option3.innerHTML= dataArray[i].option[3];
-  stat.innerHTML= "Question"+' '+(i+1)+' '+'of'+' '+dataArray.length;
-}
 // calculates scores
 function calcScore(e){
   if(e.innerHTML===dataArray[i].ans && score<dataArray.length)
@@ -121,7 +160,7 @@ function nextQuestion(){
   {
       i=i+1;
       displayQuestion();
-      console.log(dataArray);
+      console.log(nextQuestion);
   }
   else{
       points.innerHTML= score+ '/'+ dataArray.length;
@@ -152,20 +191,20 @@ function checkAnswer(){
   }
 }
 
-// Shows they won!
-function inTime() {
-  wordBlank.textContent = "🤩 YOU FINISHED IN-TIME! 🤩";
-  winCounter++
-  //startTimer.disabled = false;
-  setWins()
-}
+// // Shows they won!
+// function inTime() {
+//   wordBlank.textContent = "🤩 YOU FINISHED IN-TIME! 🤩";
+//   winCounter++
+//   //startTimer.disabled = false;
+//   setWins()
+// }
 
-// Shows they lost when the timer is 0.
-function outOfTime() {
-  wordBlank.textContent = "🙁 OUT OF TIME! 🙁";
-  loseCounter++
-  //startTimer.disabled = false;
-  setLosses()
-}
+// // Shows they lost when the timer is 0.
+// function outOfTime() {
+//   wordBlank.textContent = "🙁 OUT OF TIME! 🙁";
+//   loseCounter++
+//   //startTimer.disabled = false;
+//   setLosses()
+// }
 
 displayQuestion();
