@@ -13,7 +13,7 @@
 // reaches 0, the game is over.
 // 4) When the game is over, initials and score are saved. 
 
-// var code
+// var
 var ques= document.getElementById('ques');
 var quizContainer= document.getElementById('container');
 var choice0= document.getElementById('choice0');
@@ -30,31 +30,42 @@ var score= 0;
 // Q & A
 var dataArray= [
   {
-    ques : '1) Which of these is NOT a coding language?',
-    option : ['Asia','Africa','Europe','Australia'],
-    ans : 'Africa'
+    ques : ' Which of these is NOT a coding language?',
+    option : ['HTML','Code+','Python','JavaScript',],
+    ans : 'Code+'
 },
 {
-    ques : '',
-    option : ['Junagarh, Gujarat','Diphu, Assam','Kohima, Nagaland','Gangtok, Sikkim'],
-    ans : 'Diphu, Assam'
+    ques : ' What 2 possible values does Boolean have?',
+    option : ['a and b', 'Yes and no', 'True and false', 'Right and wrong',],
+    ans : 'True and false'
 },
 {
-    ques : '',
-    option : ['Physics and Chemistry','Physiology or Medicine','Literature, Peace and Economics','All of the above'],
-    ans : 'All of the above'
+    ques : ' What does HTML stand for?',
+    option : ['HyperType Made Language', 'Hex Text Made Language', 'Hex Type Made Language', 'HyperText Markup Language',],
+    ans : 'HyperText Markup Language'
 },
 {
-    ques : '',
-    option : ['Labour Party','Nazi Party','Ku-Klux-Klan','Democratic Party'],
-    ans : 'Nazi Party'
+    ques : ' What does CSS stand for?',
+    option : ['Copy Syntax Server','Copy Server Syntax','Cascading Style Server','Cascading Style Sheets',],
+    ans : 'Cascading Style Sheets'
 },
 {
-    ques : '',
-    option : ['1967','1968','1958','1922'],
-    ans : '1967'
+    ques : ' Responsive design means to make a website look…',
+    option : ['good on any device and screen size.','good with added features and buttons.','clean and organized on the user interface.','function well, using a variety of different computer languages.',],
+    ans : 'good on any device and screen size.'
 }
 ]
+
+// NOT WORKING----------------------------------------
+// var startBtn = document.querySelector("#start-btn");
+
+// THIS MAKE THE START BUTTON WORK!
+startBtn.addEventListener('click', ()=>{
+  alert('Clicked!')
+  startTimer()
+
+  console.log("startTimer .addEvent")
+})
 
 // Timer code ------------------------------------------
 function setTime() {
@@ -76,7 +87,7 @@ function displayQuestion(){
   for(var a=0;a<span.length;a++){
       span[a].style.background='none';
   }
-  ques.innerHTML= 'Q.'+(i+1)+' '+dataArray[i].ques;
+  ques.innerHTML= (i+1)+')'+dataArray[i].ques;
   option0.innerHTML= dataArray[i].option[0];
   option1.innerHTML= dataArray[i].option[1];
   option2.innerHTML= dataArray[i].option[2];
@@ -85,7 +96,7 @@ function displayQuestion(){
 }
 // calculates scores
 function calcScore(e){
-  if(e.innerHTML===dataArray[i].answer && score<dataArray.length)
+  if(e.innerHTML===dataArray[i].ans && score<dataArray.length)
   {
       score= score+1;
       document.getElementById(e.id).style.background= 'green';
@@ -127,7 +138,7 @@ function checkAnswer(){
   for(var a=0;a<dataArray.length;a++)
   {
       var list= document.createElement('li');
-      list.innerHTML= dataArray[a].answer;
+      list.innerHTML= dataArray[a].ans;
       answers.appendChild(list);
   }
 }
