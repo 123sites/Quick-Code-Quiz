@@ -4,16 +4,6 @@
   font-family: monospace, sans-serif;
 }
 
-/* #start {
-
-  justify-items: center;
-  font-family: monospace, sans-serif;
-  font-size: 25px;
-  margin-top: 5px;
-  justify-content: center;
-  margin: 10px;
-} */
-
 body {
   background-color: #bde3fc; 
 }
@@ -25,7 +15,6 @@ h2 {
   color: blue;
   justify-content: center;
   justify-items: center;
-  padding-bottom: 10px;
 }
 
 a, div {
@@ -66,29 +55,25 @@ p {
   font-family: monospace, sans-serif;
   font-size: 25px;
   margin-top: 5px;
-  padding-bottom: 15px;
 }
 
 .btn:focus, .btn:active, .btn:visited {
   background-color: #343a40;
 }
 
-#finalScore {
-  font-weight: bold;
-}
-
-
-
 #qTitle {
   font-family: monospace bolder;
-  margin: 3rem auto;
+  margin: auto;
   width: 100%;
-  padding: 2rem;
   color: hsl(273, 87%, 25%);
   text-align: center;
   cursor: default;
   border-radius: 1rem;
   font-size: 2rem;
+}
+
+#finalScore {
+  font-weight: bold;
 }
 
 #answerCheck {
