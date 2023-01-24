@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="redo.css">
 </head>
+
 
 <body>
     <!-- Title -->
@@ -20,8 +22,11 @@
     <div id="main"></div>
     <!-- Container -->
     <div id="container" class="hide">
+        <script></script>
         <!-- ques container -->
         <div class="questions">
+            <div id="timerDisplay"></div>
+            <button id="incorrect"></button>
             <h2 id="ques"></h2>
             <ol type="A">
                 <li class="option"><span id="option0" onclick="calcScore(this)"></span></li>
@@ -31,10 +36,23 @@
             </ol>
             <!-- stats -->
             <h4 id="stat"></h4>
+            <div class="row">
+                <div class="col text-left">
+                    <a href="#" id="viewHighScore">View High Scores</a>
+                </div>
+            </div>
         </div>
+        <div class="wrapper">
+            <div class="container">
+              <h1>Coding Time Tracker</h1>
+              <h2><span id="counter">0</span> Hours Spent Coding Today</h2>
+              <button id="add">Increment</button>
+              <button id="subtract">Decrement</button>
+            </div>
+          </div>
         <!-- Next button -->
         <div class="buttons">
-            <button type="button" class="next">Next</button>
+            <button type="button" class="next"></button>
         </div>
     </div>
     <!-- Scoreboard -->
@@ -50,9 +68,28 @@
         <ol type="1" id="answers">
         </ol>
         <button type="button" id="scoreBtn" onclick="backToQuiz()">Back to Quiz</button>
-    </div>
-    <!-- Javascript -->
-    <script src="redo.js"></script>
+        <!-- score div -->
+        <div id="summary" style="display: none;">
+            <div>
+                <h2>Your final score is <span id="finalScore"></span> !</h2>
+                <form>
+                    <p>Enter your initials: <input id="initialInput" class="form-control">
+                        <button type="submit" id="submitInitialBtn" class="btn btn-info mt-3">Submit</button>
+                    </p>
+                </form>
+            </div>
+
+
+                <!-- highscores section -->
+                <div id="highScoreSection">
+                    <h2>High Scores</h2>
+
+
+                    <div id="listOfHighScores"></div>
+                </div>
+                <!-- Javascript -->
+                <script src="redo.js"></script>
 </body>
+
 
 </html>

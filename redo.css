@@ -102,9 +102,7 @@ span{
   margin-top: 1.5rem;
   color: hsl(273, 87%, 25%);
 }
-.buttons{
-  text-align: center;
-}
+
 button{
   padding: 0.2rem 1.5rem;
   border: none;
@@ -153,6 +151,6 @@ button:active{
   margin-top: 1rem;
 }
 
-.hide {
+.hide{
   display: none;
 }

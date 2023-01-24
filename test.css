@@ -1,113 +1,48 @@
-*, *::before, *::after {
-  box-sizing: border-box;
-  font-family: monospace, sans-serif;
-  border-radius: 10px;
+body {
+  background-color: #f2f2f2; 
 }
 
-:root {
-  --hue-neutral: 240;
-  --hue-wrong: 0;
-  --hue-right: 100;
-}
-div {
-  margin-top: 10px; 
-  font-size: 30px; 
-  font-weight: bolder;
-  color: hsl(265, 90%, 34%);
-}
-
-h1 {
-  color: hsl(265, 90%, 34%);
-  font-weight: bolder;
-  font-size: 35px;
-  font-family: monospace, sans-serif;
-  margin: 0px;
-  padding-top: 22px;
-  padding-bottom: 0px;
-}
-
+h1, 
 h2 {
-  padding: 0px;
-  margin: 0px;
-  font-size: 35px;
-
+  color: #313740;
+  font-family: 'Montserrat', sans-serif;
 }
 
-li {
-  padding: 10px;
+a {
+  color: #3290A6;
+  font-family: 'Archivo', sans-serif;
 }
 
-.title, .subtitle {
-  text-align: center;
-  font-weight: bolder;
+a:hover {
+  color: #99B8BF;
+  font-family: 'Archivo', sans-serif;
 }
 
-.title {
-  padding-top: 20px;
-  font-size: 50px;
+.btn:focus, .btn:active, .btn:visited {
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: #343a40;
 }
 
-.timer-text, #seconds {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-size: 32px;
-  color: hsl(265, 90%, 34%);
-  text-align: center;
-}
-
-#start-btn {
-  align-items: center;
-}
-.subtitle {
-  padding-top: 7px;
-  padding-bottom: 25px;
-  font-size: 35px;
-}
-.btn.right {
-  --hue: var(--hue-right);
-}
-
-.btn.wrong {
-  --hue: var(--hue-wrong);
-}
-
-.btn {
-  --hue: var(--hue-neutral);
-  border: 5px solid hsl(273, 91%, 14%);
-  background-color: hsl(273, 91%, 45%);
-  border-radius: 10px;
-  color: white;
-  outline: none;
-}
-
-
-.btn:hover {
-  border-color: black;
-}
-
-.right {
-  --hue: var(--hue-right);
-  color: black;
-}
-
-.wrong {
-  --hue: var(--hue-wrong);
-}
-
-.start-btn {
-  font-size: 2rem;
+#finalScore {
+  font-family: 'Montserrat', sans-serif;
   font-weight: bold;
-  padding: 10px 35px;
 }
 
-.game-controller, #results, #submit {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 0px;
+span {
+  font-family: 'Archivo', sans-serif;
 }
 
-.hide {
-  display: none;
+p {
+  font-family: 'Archivo', sans-serif;
 }
 
+#questionTitle {
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#answerCheck {
+  font-style: italic;
+  color: #4D5159;
+}
