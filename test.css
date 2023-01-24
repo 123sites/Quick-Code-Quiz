@@ -25,6 +25,7 @@ h2 {
   color: blue;
   justify-content: center;
   justify-items: center;
+  padding-bottom: 10px;
 }
 
 a, div {
@@ -50,10 +51,13 @@ button {
   display: flex;
   margin: auto;
   font-family: monospace, sans-serif;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
   background-color: red;
   color: white;
+  border: 5px solid hsl(273, 91%, 14%);
+  background-color: hsl(273, 88%, 33%);
+  border-radius: 10px;
 }
 
 p {
@@ -62,11 +66,10 @@ p {
   font-family: monospace, sans-serif;
   font-size: 25px;
   margin-top: 5px;
+  padding-bottom: 15px;
 }
 
 .btn:focus, .btn:active, .btn:visited {
-  outline: none !important;
-  box-shadow: none !important;
   background-color: #343a40;
 }
 
@@ -76,7 +79,7 @@ p {
 
 
 
-#questionTitle {
+#qTitle {
   font-family: monospace bolder;
   margin: 3rem auto;
   width: 100%;
@@ -90,5 +93,6 @@ p {
 
 #answerCheck {
   font-style: italic;
-  color: #4D5159;
+  font-weight: bold;
+  color: red
 }

@@ -24,7 +24,7 @@ var startDiv = document.getElementById("start");
 var startQuizBtn = document.getElementById("start-quiz-button");
 
 var questionDiv = document.getElementById("questionDiv");
-var questionTitle = document.getElementById("questionTitle");
+var qTitle = document.getElementById("qTitle");
 var choiceA = document.getElementById("btn0");
 var choiceB = document.getElementById("btn1");
 var choiceC = document.getElementById("btn2");
@@ -107,16 +107,13 @@ function newQuiz() {
   showQuiz();
 };
 
-// console.log(questions[questionIndex].question);
-// console.log(questions[questionIndex].choices);
-
 // nextQuestion
 function showQuiz() {
   nextQuestion();
 }
 
 function nextQuestion() {
-  questionTitle.textContent = questions[questionIndex].question;
+  qTitle.textContent = questions[questionIndex].question;
   choiceA.textContent = questions[questionIndex].options[0];
   choiceB.textContent = questions[questionIndex].options[1];
   choiceC.textContent = questions[questionIndex].options[2];
@@ -139,7 +136,7 @@ function checkAnswer(answer) {
       // Wrong -5 on the time
       totalTime -= 5;
       timeLeft.textContent = totalTime;
-      answerCheck.textContent = "Sorry, not correct, the answer is: " + questions[questionIndex].answer;
+      answerCheck.textContent = "Sorry, that's not correct! The answer is: " + questions[questionIndex].answer;
   }
 
   questionIndex++;
