@@ -34,6 +34,11 @@
 
 }
 
+.startBtn {
+  display: flex;
+  justify-content: center;
+}
+
 #btn, #startBtn {
   display: flex;
   flex: wrap;
@@ -67,6 +72,7 @@
 #ques{
   margin-bottom: 1rem;
 }
+
 .option{
   margin-bottom: 0.5rem;
   font-size: 1.5rem;
@@ -133,9 +139,6 @@ button:active{
   font-size: 2.5rem;
 }
 
-div {
-
-}
 #answerBank li{
   display: flex;
   text-align: left;
@@ -150,3 +153,6 @@ div {
   margin-top: 1rem;
 }
 
+.hide {
+  display: none;
+}

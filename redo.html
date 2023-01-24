@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,29 +8,31 @@
     <!-- CSS -->
     <link rel="stylesheet" href="redo.css">
 </head>
+
 <body>
     <!-- Title -->
     <h1 id="title">Quick Code Quiz!</h1>
     <h2 id="counter subtract count" class="timer-text timer count"><span id="seconds"> </span> seconds</h2>
-        <!-- Start button -->
-      <div class="startBtn">      
+    <!-- Start button -->
+    <div class="startBtn">
         <button id="startBtn" class="btn" style="text-align:center">Start</button>
+    </div>
     <div id="main"></div>
     <!-- Container -->
-    <div id="container">
-      <!-- ques container -->
-      <div class="questions">
-          <h2 id="ques"></h2>
-          <ol type="A">
-              <li class="option"><span id="option0" onclick="calcScore(this)"></span></li>
-              <li class="option"><span id="option1" onclick="calcScore(this)"></span></li>
-              <li class="option"><span id="option2" onclick="calcScore(this)"></span></li>
-              <li class="option"><span id="option3" onclick="calcScore(this)"></span></li>
-          </ol>
-          <!-- stats -->
-          <h4 id="stat"></h4>
-      </div>
-      <!-- Next button -->
+    <div id="container" class="hide">
+        <!-- ques container -->
+        <div class="questions">
+            <h2 id="ques"></h2>
+            <ol type="A">
+                <li class="option"><span id="option0" onclick="calcScore(this)"></span></li>
+                <li class="option"><span id="option1" onclick="calcScore(this)"></span></li>
+                <li class="option"><span id="option2" onclick="calcScore(this)"></span></li>
+                <li class="option"><span id="option3" onclick="calcScore(this)"></span></li>
+            </ol>
+            <!-- stats -->
+            <h4 id="stat"></h4>
+        </div>
+        <!-- Next button -->
         <div class="buttons">
             <button type="button" class="next">Next</button>
         </div>
@@ -51,4 +54,5 @@
     <!-- Javascript -->
     <script src="redo.js"></script>
 </body>
+
 </html>

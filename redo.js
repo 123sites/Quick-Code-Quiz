@@ -17,7 +17,7 @@
 var ques= document.getElementById('ques');
 var quizContainer= document.getElementById('container');
 var count = 3;
-var secondsLeft = document.getElementById('seconds');
+var secondsLeft = 3;
 var choice0= document.getElementById('choice0');
 var choice1= document.getElementById('choice1');
 var choice2= document.getElementById('choice2');
@@ -41,16 +41,21 @@ console.log('startBtn39')
 
 // THIS MAKE THE START BUTTON WORK!  ALSO, MAKES ALERT BOX WORK!
 startBtn.addEventListener('click', ()=>{
-  alert('Can you get 100%, before the time is up?')
   startTimer()
-
+  quizContainer.classList.remove("hide")
   console.log("startBtn47")
+  // startBtn.classList.add("hide")
+  // console.log("Hide startBtn")
+
 })
 
 function startBtn() {
   startTimer()
   currentQuestion = 0;
   showQuestion(dataArray[level])
+  startBtn.classList.add("hide");
+  console.log("Hide startBtn")
+
 
 
 // Timer code ------------------------------------------
@@ -104,22 +109,25 @@ function startTimer() {
   console.log("startTimer")
   time = setInterval(function() {
     secondsLeft--;
-    timeEl.seconds + " seconds left until the time is up!";
+    timerEl.textContent=secondsLeft + " seconds left until the time is up!";
 
-    if (seconds === 0) {
-      // Tests if won
-      if (isWin && count > 0) {
-        // Stops timer & clears interval
-        clearInterval(time);
-        winGame();
-      }
-    }
-    // Time out?
-    if (count === 0) {
-      // Clears it
+    if (secondsLeft <=0) {
       clearInterval(time);
-      loseGame();
-    }
+      endGame()
+      // Tests if won
+    //   if (isWin && secondsLeft > 0) {
+    //     // Stops timer & clears interval
+    //     clearInterval(time);
+    //     // winGame();
+    //   }
+
+    // // Time out?
+    // else {
+    //   // Clears it
+    //   clearInterval(time);
+    //   // loseGame();
+    // }
+  }
   }, 1000);
 }
 
@@ -181,6 +189,9 @@ var dataArray= [
 }
 ]
 
+function endGame (){
+console.log("endOfGame")
+}
 // calculates scores
 function calcScore(e){
   if(e.innerHTML===dataArray[i].ans && score<dataArray.length)
@@ -247,4 +258,86 @@ function checkAnswer(){
 //   setLosses()
 // }
 
+
+// // Save score & intitials:
+// // Add data
+// localStorage.setItem('score');
+
+// // Read data
+// const score = localStorage.getItem('myScore');
+
+// // Remove specific data
+// localStorage.removeItem('myCar');
+
+// // Remove all data
+// localStorage.clear();
+
 displayQuestion();
+
+// const NO_OF_HIGH_SCORES = 10;
+// const HIGH_SCORES = 'highScores';
+
+// const highScoreString = localStorage.getItem(HIGH_SCORES);
+// const highScores = JSON.parse(highScoreString) ?? [];
+
+// const lowestScore = highScores[NO_OF_HIGH_SCORES — 1]?.score ?? 0
+
+// function checkHighScore(score) {
+//   const highScores = JSON.parse(localStorage.getItem(HIGH_SCORES)) ?? [];
+//   const lowestScore = highScores[NO_OF_HIGH_SCORES - 1]?.score ?? 0;
+  
+//   if (score > lowestScore) {
+//     saveHighScore(score, highScores); // TODO
+//     showHighScores(); // TODO
+//   }
+// }
+// function gameOver() {
+//   // Other game over logic.
+//   checkHighScore(account.score);
+
+//   const name = prompt(‘You got a high score! Enter name:’);
+
+//   const newScore = { score, name };
+
+  
+// function saveHighScore(score, highScores) {
+//   const name = prompt('You got a highscore! Enter name:');
+//   const newScore = { score, name };
+  
+//   // 1. Add to list
+//   highScores.push(newScore);
+
+//   // 2. Sort the list
+//   highScores.sort((a, b) => b.score - a.score);
+  
+//   // 3. Select new list
+//   highScores.splice(NO_OF_HIGH_SCORES);
+  
+//   // 4. Save to local storage
+//   localStorage.setItem(HIGH_SCORES, JSON.stringify(highScores));
+// };
+
+// <h2>HIGH SCORES</h2>
+// <ol id=”highScores”></ol>
+
+// highScores.map((score) => `<li>${score.score} — ${score.name}`);
+
+
+// const highScoreList = document.getElementById(HIGH_SCORES);
+
+// highScoreList.innerHTML = highScores.map((score) => 
+//   `<li>${score.score} - ${score.name}`
+// );
+
+
+// function showHighScores() {
+//   const highScores = JSON.parse(localStorage.getItem(HIGH_SCORES)) ?? [];
+//   const highScoreList = document.getElementById(HIGH_SCORES);
+  
+//   highScoreList.innerHTML = highScores
+//     .map((score) => `<li>${score.score} - ${score.name}`)
+//     .join('');
+// }
+
+// }
+
