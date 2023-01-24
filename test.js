@@ -34,7 +34,7 @@ var answerCheck = document.getElementById("answerCheck");
 var summary = document.getElementById("summary");
 var submitInitialBtn = document.getElementById("submitInitialBtn");
 var initialInput = document.getElementById("initialInput");
-var everything = document.getElementById("everything");
+var mainContent = document.getElementById("mainContent");
 
 var highScoreSection = document.getElementById("highScoreSection");
 var finalScore = document.getElementById("finalScore");
@@ -81,10 +81,10 @@ var questionIndex = 0;
 ];
 
 // Timer
-var totalTime = 151;
+var totalTime = 60;
 function newQuiz() {
   questionIndex = 0;
-  totalTime = 150;
+  totalTime = 59;
   timeLeft.textContent = totalTime;
   initialInput.textContent = "";
 
