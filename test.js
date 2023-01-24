@@ -134,14 +134,11 @@ function checkAnswer(answer) {
       // correct +1
       correctAns++;
       console.log(correctAns);
-      document.getElementById(e.id).style.background= 'green';
       answerCheck.textContent = "Correct!";
-  
   } else {
       // Wrong -5 on the time
       totalTime -= 5;
       timeLeft.textContent = totalTime;
-      document.getElementById(e.id).style.background= 'red';
       answerCheck.textContent = "Sorry, not correct, the answer is: " + questions[questionIndex].answer;
   }
 
