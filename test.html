@@ -7,10 +7,8 @@
     <link rel="stylesheet" href="test.css">
 </head>
 <body>
-    <!-- main content -->
     <div class="container-fluid">
-
-        <!-- top for highscore link and timer -->
+      <!-- High score, timer, and mainContent. -->
         <div class="row">
             <div>
                 <a href="#" id="viewHighScore">View High Scores</a>
@@ -23,14 +21,15 @@
 
         <div id="mainContent">
               <main>
-                  <!--start screen  -->
+                  <!-- Start -->
                   <div id="start">
                       <h1>Quick Code Quiz!</h1>
-                      <p style="text-align: center">Answer these questions before the time is out!  <br> You will have 5 seconds taken off for each wrong answer!</p>
+                      <p style="text-align: center">Quickly and accurately answer all questions! 
+                        <br> You will have 5 seconds taken off for each wrong answer!</br>
+                      <br> Click the Start button to begin! </br></p>
                       <button type="button" id="start-quiz-button" style="align-content:center">Start Quiz</button>
                   </div>
-
-                  <!--quiz div  -->
+                  <!-- Questions -->
                   <div id="questionDiv" style="display: none;">
                     <p id="qTitle"></p>
                     <div>
@@ -42,8 +41,7 @@
                         <p id="answerCheck" style="display: none;"></p>
                     </div>
                   </div>
-
-                  <!-- score div -->
+                    <!-- Score -->
                     <div id="summary" style="display: none;">
                         <div>
                             <h2>Your final score is <span id="finalScore"></span> !</h2>
@@ -55,14 +53,10 @@
                         </div>
                     <div></div>
                 </div>
-
-                <!-- highscores section -->
+                <!-- High scores -->
                 <div id="highScoreSection" style="display: none;">
                     <h2>High Scores</h2>                   
-                    
                     <div id="listOfHighScores" class="list-group list-group-flush"></div>
-
-                    <!-- append each highscore as new paragraph here -->
                     <p>
                         <button type="submit" class="btn btn-info" id="goBackBtn">Go Back</button>
                         <button type="submit" class="btn btn-info" id="clearHighScoreBtn">Clear High Scores</button>
@@ -70,7 +64,7 @@
                     
                 </div>
               </main>
-            <div class="col-md-2"></div>
+            <div></div>
         </div>
     </div>
     <script src="test.js"></script>
