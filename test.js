@@ -16,6 +16,11 @@
 
 
 // var
+var correctAns = 0;
+var questionNum = 0;
+var scoreResult;
+var questionIndex = 0;
+
 var timer = document.getElementById("timer");
 var timeLeft = document.getElementById("timeLeft");
 var timesUp = document.getElementById("timesUp");
@@ -43,12 +48,6 @@ var goBackBtn = document.getElementById("goBackBtn");
 var clearHighScoreBtn = document.getElementById("clearHighScoreBtn"); 
 var viewHighScore = document.getElementById("viewHighScore");
 var listOfHighScores = document.getElementById("listOfHighScores");
-
-// define other variables
-var correctAns = 0;
-var questionNum = 0;
-var scoreResult;
-var questionIndex = 0;
 
  // Questions and answers
  const questions = [
