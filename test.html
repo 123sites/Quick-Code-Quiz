@@ -45,32 +45,32 @@
 
                   <!-- score div -->
                     <div id="summary" style="display: none;">
-                        <div class="col-8 text-left">
-                            <h2 class="font-weight-bold pt-2 pb-3 m-2">Your final score is <span id="finalScore"></span> !</h2>
+                        <div>
+                            <h2>Your final score is <span id="finalScore"></span> !</h2>
                             <form>
-                                <p class="pt-2 pb-3 m-2">Enter your initials: <input id="initialInput" class="form-control pt-2 pb-3 mt-2" type="text">
-                                <button type="submit" id="submitInitialBtn" class="btn btn-info mt-3">Submit</button>
+                                <p>Enter your initials: <input id="initialInput">
+                                <button type="submit" id="submitInitialBtn" class="btn btn-info">Submit</button>
                                 </p>
                             </form>
                         </div>
-                    <div class="col-2"></div>
+                    <div></div>
                 </div>
 
                 <!-- highscores section -->
-                <div id="highScoreSection" class="pl-5 ml-4 pt-5 justify-content-center font-weight-bold" style="display: none;">
-                    <h2 class="font-weight-bold pt-2 pb-3 mb-2">High Scores</h2>                   
+                <div id="highScoreSection" style="display: none;">
+                    <h2>High Scores</h2>                   
                     
-                    <div id="listOfHighScores" class="list-group list-group-flush pt-2 pb-3 mb-2"></div>
+                    <div id="listOfHighScores" class="list-group list-group-flush"></div>
 
                     <!-- append each highscore as new paragraph here -->
                     <p>
-                        <button type="submit" class="btn btn-info mt-3 mr-3" id="goBackBtn">Go Back</button>
-                        <button type="submit" class="btn btn-info mt-3" id="clearHighScoreBtn">Clear High Scores</button>
+                        <button type="submit" class="btn btn-info" id="goBackBtn">Go Back</button>
+                        <button type="submit" class="btn btn-info" id="clearHighScoreBtn">Clear High Scores</button>
                     </p>
                     
                 </div>
               </main>
-            <div class="col-md-2"></div>
+            <div></div>
         </div>
     </div>
     <script src="test.js"></script>
