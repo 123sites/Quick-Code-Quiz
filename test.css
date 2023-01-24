@@ -5,9 +5,29 @@
 }
 
 body {
-  background-color: #bde3fc; 
+  background-color: #c7cbcd; 
 }
 
+main {
+background-color: rgb(100, 185, 128);
+border-radius: 10px;
+border: 5px solid hsl(0, 38%, 25%);
+}
+
+div {
+  font-family: monospace, sans-serif;
+  font-size: 27px;
+  justify-content: flex-start;
+  color: blue;
+  font-weight: bolder;
+  font-family: monospace, sans-serif;
+}
+
+input {
+  font-family: monospace, sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+}
 h1, 
 h2 {
   display: flex;
@@ -17,12 +37,17 @@ h2 {
   justify-items: center;
 }
 
-a, div {
+a {
   justify-content: flex-start;
-  color:Red;
-  font-size: 22px;
+  color: blue;
+  font-size: 27px;
   font-weight: bolder;
   font-family: monospace, sans-serif;
+}
+
+
+a:hover {
+  color: #03224f;
 }
 
 @media screen and (max-width: 350px) {
@@ -30,10 +55,6 @@ a, div {
     display:flex;
     max-width: 20rem;
   }
-  
-}
-a:hover {
-  color: #03224f;
 }
 
 button {
@@ -42,13 +63,19 @@ button {
   font-family: monospace, sans-serif;
   font-size: 25px;
   font-weight: bold;
-  background-color: red;
+  background-color: blue;
   color: white;
-  border: 5px solid hsl(273, 91%, 14%);
-  background-color: hsl(273, 88%, 33%);
+  border: 5px solid hsl(253, 83%, 9%);
+  background-color: blue;
   border-radius: 10px;
 }
 
+btn-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-items: center;
+}
 p {
   display: flex;
   justify-content: center;
@@ -57,7 +84,7 @@ p {
   margin-top: 5px;
 }
 
-.btn:focus, .btn:active, .btn:visited {
+.btn:hover {
   background-color: #343a40;
 }
 
@@ -73,11 +100,12 @@ p {
 }
 
 #finalScore {
+  margin: -5px 0px 0px 10px;
   font-weight: bold;
 }
 
-#answerCheck {
+#aCheck {
   font-style: italic;
   font-weight: bold;
-  color: red
+  color: blue;
 }
