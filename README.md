@@ -25,7 +25,7 @@ There weren't any installations with this project.  You can find the link to the
 [Repository link](https://github.com/123sites?tab=repositories)
 
 The link to the Random-Password-Generator is at:
-[Quick-Code-Quiz Link](https://git@github.com:123sites/Quick-Code-Quiz.git)
+[Quick-Code-Quiz Link](https://github.com/123sites/Quick-Code-Quiz.git)
 ## Screenshots 🎯
 
 <img src="/Random-Password-Generator/Images/Laptop_Screenshot.png" alt="Laptop View">
