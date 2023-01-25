@@ -13,16 +13,16 @@ The functions that it needed were:
 ## Installation 🔑
 
 There weren't any installations with this project.  You can find the link to the repository at:
-[Repository link]()
+[Repository link](https://github.com/123sites/Quick-Code-Quiz)
 
 The link to the Quick Code Quiz is at:
-[Quick-Code-Quiz Link] ())
+[Quick-Code-Quiz Link](https://123sites.github.io/Quick-Code-Quiz)
 ## Screenshots 🎯
 
-<img src="assets/images/Image at Start.png">
-<img src="assets/images/Quiz Questions Image.png">
-<img src="assets/images/Out of Time Screenshot!.png">
-<img src="assets/images/High Scores Screenshot.png">
+![screenshots](./assets/images/Image-at-Start.png)
+![screenshots](./assets/images/Quiz-Questions-Image.png)
+![screenshots](./assets/images/Out-of-Time-Screenshot!.png)
+![screenshots](./assets/images/High-Scores-Screenshot.png)
 
 ## Credits 👈
 
