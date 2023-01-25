@@ -5,7 +5,6 @@
 // code.  There needed to be clean, polished, and responsive user
 //interface.
 
-
 // The functions that it needed were:
 // 1) When the start button is clicked, the timer starts
 // when presented with a question.
@@ -13,7 +12,6 @@
 // 3) When either all questions are answered or when the timer
 // reaches 0, the game is over.
 // 4) When the game is over, initials and score are saved.
-
 
 // var
 var correctAns = 0;
@@ -72,7 +70,6 @@ var listOfHighScores = document.getElementById("listOfHighScores");
       options: ['good on any device and screen size.','good with added features and buttons.','clean and organized on the user interface.','function well, using a variety of different computer languages.',],
       answer: "good on any device and screen size."
   },
-  
 ];
 
 // Timer
@@ -143,11 +140,8 @@ function checkAnswer(answer) {
 }
 
 function chooseA() { checkAnswer(0); }
-
 function chooseB() { checkAnswer(1); }
-
 function chooseC() { checkAnswer(2); }
-
 function chooseD() { checkAnswer(3); }
 
 // Determines when the game is over.
