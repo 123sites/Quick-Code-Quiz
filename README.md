@@ -19,10 +19,9 @@ The link to the Random-Password-Generator is at:
 [Quick-Code-Quiz Link](https://github.com/123sites/Quick-Code-Quiz.git)
 ## Screenshots 🎯
 
-<img src="assets/images/Image at Start.png">
-<img src="assets/images/Quiz Questions Image.png">
-<img src="assets/images/Out of Time Screenshot!.png">
-<img src="assets/images/High Scores Screenshot.png">
+<img src="/Random-Password-Generator/Images/Laptop_Screenshot.png" alt="Laptop View">
+
+<img src="/Random-Password-Generator/Images/Cell phone screenshot.png" alt="Cell Phone View">
 
 ## Credits 👈
 
@@ -39,4 +38,6 @@ So far, I have the Pull Shark and Yolo badges on GitHub.
 
 [Badges, Stars tab](https://github.com/123sites?tab=stars)
 
+## ⭐ Features ⭐ ✍
 
+This application adapts to different screen sizes. 
