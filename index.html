@@ -1,37 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Quick Code Quiz!</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Code Quiz!</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<main>
+<!-- Body -->
 <body>
-  <header>
-    <div class= "title" >Quick Code Quiz!</div>
-    <div class="subtitle"> Can you answer all these questions before the time is up?</div>
-  </header>
-  <div class="wrapper">
-  <h1 style="text-align:center;">Countdown Timer:</h1>
-    <h2 id="counter" class="timer-text"><span id="seconds"> </span> seconds remaining</h2>
-    <div id="question answerChoice quiz submit results"></div> 
-        <p class="questions"></p>
-        <div class="answers"></div>         
-        <div class="checkAnswers">
-          <!-- <h3 style="text-align:center;">Correct?</h3>
-          <div class="checker"> -->
-   
-    <!-- <div id="answerChoice"></div>
-      <div id="submit">Results</div>
-      <div id="results"></div> --> 
-  <div class="game-controller">      
-    <button id="start-btn" class="start-btn btn">Start</button>
-  </div>
-</main>
-  <script src="./script.js"></script>
+    <div>
+      <!-- High score and timer. -->
+        <div>
+            <div>
+                <a href="#" id="viewScores">View Scores</a>
+            </div>
+            <div id="timer">
+                <i class="far fa-clock"></i> Time: <span id="timeLeft">0</span>
+            </div>
+            <div id="noTime" style="display: none;">Time's Up!</div>
+        </div>
+
+        <div id="mainContent">
+              <main>
+                  <!-- Start -->
+                  <div id="start">
+                      <h1>Quick Code Quiz!</h1>
+                      <p style="text-align: center">Quickly and accurately answer all 5 questions in 20 seconds or less! 
+                        <br> You will have 5 seconds taken off for each wrong answer!</br>
+                      <br> Click the Start button to begin! </br></p>
+                      <button type="button" id="start-quiz-button" style="align-content:center">Start</button>
+                  </div>
+                  <!-- Questions -->
+                  <div id="qDiv" style="display: none;">
+                    <p id="qTitle"></p>
+                    <div>
+                        <p><button id="btn0" class="btn"></button></p>
+                        <p><button id="btn1" class="btn"></button></p>
+                        <p><button id="btn2" class="btn"></button></p>
+                        <p><button id="btn3" class="btn"></button></p>
+                        <hr id="lineBreak" style="display: none">
+                        <p id="aCheck" style="display: none;"></p>
+                    </div>
+                  </div>
+                    <!-- Score -->
+                    <div id="info" style="display: none;">
+                        <div>
+                            <h2>Your final score is <span id="finalScore"></span> !</h2>
+                            <form>
+                                <p>Enter your initials: <input id="initialInput">
+                                <button type="submit" id="submitInitialBtn" class="btn btn-info" style="align-content:center">Submit</button>
+                                </p>
+                            </form>
+                        </div>
+                    <div></div>
+                </div>
+                <!-- High scores -->
+                <div id="highScore" style="display: none;">
+                    <h2>High Scores</h2>                   
+                    <div id="listOfHighScores" class="list-group list-group-flush"></div>
+                    <p>
+                        <button type="submit" class="btn btn-info" id="goBack">Go Back</button>
+                        <button type="submit" class="btn btn-info" id="clearHighScoreBtn">Clear High Scores</button>
+                    </p>
+                    
+                </div>
+              </main>
+            <div></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
-
