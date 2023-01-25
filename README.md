@@ -19,9 +19,7 @@ The link to the Random-Password-Generator is at:
 [Quick-Code-Quiz Link](https://github.com/123sites/Quick-Code-Quiz.git)
 ## Screenshots 🎯
 
-<img src="/Random-Password-Generator/Images/Laptop_Screenshot.png" alt="Laptop View">
 
-<img src="/Random-Password-Generator/Images/Cell phone screenshot.png" alt="Cell Phone View">
 
 ## Credits 👈
 
