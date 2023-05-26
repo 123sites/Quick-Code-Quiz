@@ -19,15 +19,11 @@ The link to the Quick Code Quiz is at:
 [Quick-Code-Quiz Link](https://123sites.github.io/Quick-Code-Quiz)
 ## Screenshots 🎯
 
-![screenshots](./assets/images/Image-at-Start.png)
-![screenshots](./assets/images/Quiz-Questions-Image.png)
-![screenshots](./assets/images/Out-of-Time-Screenshot!.png)
-![screenshots](./assets/images/High-Scores-Screenshot.png)
+![screenshots](./assets/images/codeQuiz.png)
 
 ## Credits 👈
 
   When I had trouble with this project, I first tried to problem-solve it myself.  I used Google, YouTube, asked my instructor, his TA's, and/or reached out to a tutor.  
-
 
 ## Badges 🏆
 

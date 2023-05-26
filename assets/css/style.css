@@ -1,26 +1,27 @@
-*{
-  margin: 5px;
-  padding: 5px;
+* {
   font-family: monospace, sans-serif;
 }
 
-body {
-  background-color: #c7cbcd; 
+#mainContent {
+  background-color: rgb(36, 123, 123);
+  border-radius: 10px;
+  border: 5px solid hsl(36, 123, 123);
+  margin: 0 auto;
+  max-width: 80%;
+  padding: 20px 0px;
 }
 
-main {
-background-color: rgb(100, 185, 128);
-border-radius: 10px;
-border: 5px solid hsl(0, 38%, 25%);
+body {
+  background-color: rgb(253, 240, 213);
 }
 
 div {
   font-family: monospace, sans-serif;
   font-size: 27px;
   justify-content: flex-start;
-  color: blue;
   font-weight: bolder;
   font-family: monospace, sans-serif;
+  color: rgb(76, 44, 114);
 }
 
 input {
@@ -28,63 +29,96 @@ input {
   font-size: 25px;
   font-weight: bold;
 }
-h1, 
-h2 {
+
+h1 {
   display: flex;
+  color: rgb(76, 44, 114);
   font-size: 35px;
-  color: blue;
+  justify-content: center;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+h2{
+  display: flex;
+  color: rgb(253, 240, 213);
+  font-size: 35px;
   justify-content: center;
   justify-items: center;
+  font-weight: bold;
 }
 
 a {
-  justify-content: flex-start;
-  color: blue;
+  display: flex;
+  color: rgb(76, 44, 114);
   font-size: 27px;
   font-weight: bolder;
   font-family: monospace, sans-serif;
-}
-
-a:hover {
-  color: #03224f;
-}
-
-@media screen and (max-width: 350px) {
-  a, div, h1, p {
-    display:flex;
-    max-width: 20rem;
-  }
-}
-
-button {
-  display: flex;
-  margin: auto;
-  font-family: monospace, sans-serif;
-  font-size: 25px;
-  font-weight: bold;
-  background-color: blue;
-  color: white;
-  border: 5px solid hsl(253, 83%, 9%);
-  background-color: blue;
-  border-radius: 10px;
-}
-
-btn-info {
-  display: flex;
-  flex-wrap: wrap;
+  text-decoration: none;
   justify-content: center;
-  justify-items: center;
 }
+
+button:hover,
+.btn:hover {
+  color: rgb(100, 80, 123);
+}
+
+button:active,
+.btn:active {
+  background-color: rbg();
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+button,
+.btn,
+.btnInfo {
+  padding: 7px 15px;
+  font-size: 21px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+  outline: none;
+  color: rgb(253, 240, 213);
+  background-color: rgb(76, 44, 114);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #666;
+}
+
+#start {
+  text-align: center;
+
+}
+
+#aCheck {
+  display: flex;
+  color: rgb(253, 240, 213);
+  justify-content: center;
+  font-style: italic;
+  font-weight: bold;
+}
+
+#initialInput {
+  color: rgb(76, 44, 114);
+  justify-content: center;
+}
+
 p {
   display: flex;
   justify-content: center;
   font-family: monospace, sans-serif;
   font-size: 25px;
-  margin-top: 5px;
+  padding-top: 10px;
+  color: rgb(253, 240, 213);
 }
 
-.btn:hover {
-  background-color: #343a40;
+.viewScores,
+#timer {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
 }
 
 #qTitle {
@@ -99,12 +133,17 @@ p {
 }
 
 #finalScore {
-  margin: -5px 0px 0px 10px;
+  margin-left: 15px;
   font-weight: bold;
 }
 
-#aCheck {
-  font-style: italic;
-  font-weight: bold;
-  color: blue;
+.btn-info {
+  display: flex;
+  justify-content: center;
 }
+/* @media screen and (max-width: 350px) {
+  a, div, h1, p {
+    display:flex;
+    max-width: 20rem;
+  }
+} */
