@@ -17,6 +17,7 @@ There weren't any installations with this project.  You can find the link to the
 
 The link to the Quick Code Quiz is at:
 [Quick-Code-Quiz Link](https://123sites.github.io/Quick-Code-Quiz)
+
 ## Screenshots 🎯
 
 ![screenshots](./assets/images/codeQuiz.png)
