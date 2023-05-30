@@ -9,6 +9,8 @@
   margin: 0 auto;
   max-width: 80%;
   padding: 20px 0px;
+  border-radius: 15px;
+  box-shadow: 0 9px #666;
 }
 
 body {
